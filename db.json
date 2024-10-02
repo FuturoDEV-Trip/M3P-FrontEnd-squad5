@@ -1,0 +1,252 @@
+{
+  "usuarios": [
+    {
+      "nome_usuario": "Altria",
+      "email_usuario": "altria@email.com",
+      "senha_usuario": "altriapass",
+      "sexo_usuario": "Feminino",
+      "nascimento_usuario": "2001-01-01",
+      "cpf_usuario": "58017624000",
+      "cep_usuario": "41194205",
+      "endereco_usuario": "Rua Rio Tocantins, Doron - Salvador, BA",
+      "id": "1"
+    },
+    {
+      "nome_usuario": "Emiya",
+      "email_usuario": "emiya@email.com",
+      "senha_usuario": "emiyapass",
+      "sexo_usuario": "Masculino",
+      "nascimento_usuario": "2002-02-02",
+      "cpf_usuario": "21045747068",
+      "cep_usuario": "76876442",
+      "endereco_usuario": "Via Curió, Flores - Ariquemes, RO",
+      "id": "2"
+    },
+    {
+      "nome_usuario": "Gilgamesh",
+      "email_usuario": "gilgamesh@email.com",
+      "senha_usuario": "gilgameshpass",
+      "sexo_usuario": "Masculino",
+      "nascimento_usuario": "2003-03-03",
+      "cpf_usuario": "20356451070",
+      "cep_usuario": "60830065",
+      "endereco_usuario": "Rua Salvador Correia de Sá, José de Alencar - Fortaleza, CE",
+      "id": "3"
+    },
+    {
+      "nome_usuario": "Rin",
+      "email_usuario": "rin@email.com",
+      "senha_usuario": "rinrinpass",
+      "sexo_usuario": "Feminino",
+      "nascimento_usuario": "2004-04-04",
+      "cpf_usuario": "26066646044",
+      "cep_usuario": "69047180",
+      "endereco_usuario": "Rua Messejana, Redenção - Manaus, AM",
+      "id": "4"
+    },
+    {
+      "id": "3775",
+      "nome_usuario": "Sakura",
+      "email_usuario": "sakura@email.com",
+      "senha_usuario": "sakurapass",
+      "sexo_usuario": "Feminino",
+      "nascimento_usuario": "2002-02-02",
+      "cpf_usuario": "84961305090",
+      "cep_usuario": "69312563"
+    }
+  ],
+  "destinos": [
+    {
+      "nome_destino": "Lagoa do Peri Park",
+      "categoria_destino": "parque",
+      "descricao_destino": "Lago do Peri Park is one of the greenest areas to visit while...",
+      "cep_destino": "88010102",
+      "numero_destino": "3150",
+      "localidade_destino": "Rod. Francisco Thomaz dos Santos ",
+      "cidade_destino": "Florianópolis - SC",
+      "complemento_destino": "Entrance is close to Morro das Pedras Belvedere",
+      "id": "3"
+    },
+    {
+      "nome_destino": "Campeche Island",
+      "categoria_destino": "outro",
+      "descricao_destino": "Campeche Island is one of the most trendy places to visit while enjoying a trip to Florianópolis...",
+      "cep_destino": "88063198",
+      "numero_destino": "",
+      "localidade_destino": "Rua Lomba do Sabão",
+      "cidade_destino": "Florianópolis",
+      "complemento_destino": "Beach close to Campeche Island where you can get a boat and enjoy the ride :)",
+      "latitude": "-27.6969423",
+      "longitude": "-48.4909268",
+      "id": "4"
+    },
+    {
+      "nome_destino": "Conceição Lake",
+      "categoria_destino": "outro",
+      "descricao_destino": "Conceição Lake is one of the most beautiful places in...",
+      "cep_destino": "88062001",
+      "numero_destino": "",
+      "localidade_destino": "Rodovia Admar Gonzaga",
+      "cidade_destino": "Florianópolis",
+      "complemento_destino": "de 3789/3790 ao fim",
+      "latitude": "-27.6010008",
+      "longitude": "-48.4730694",
+      "id": "5",
+      "id_usuario": "2"
+    },
+    {
+      "nome_destino": "Morro da Cruz Belvedere",
+      "categoria_destino": "outro",
+      "descricao_destino": "Morro da Cruz Belvedere offers one the best views from...",
+      "cep_destino": "88025150",
+      "numero_destino": "",
+      "localidade_destino": "Avenida do Antão",
+      "cidade_destino": "Florianópolis",
+      "complemento_destino": "até 799/800",
+      "latitude": "-27.5860885",
+      "longitude": "-48.5364725",
+      "id": "6",
+      "id_usuario": "1"
+    },
+    {
+      "nome_destino": "Hercílio Luz Bridge",
+      "categoria_destino": "outro",
+      "descricao_destino": "Hercílio Luz Bridge is a postal card...",
+      "cep_destino": "88010400",
+      "numero_destino": "",
+      "localidade_destino": "Praça Quinze de Novembro",
+      "cidade_destino": "Florianópolis",
+      "complemento_destino": "",
+      "latitude": "-27.59763875",
+      "longitude": "-48.54985804631796",
+      "id": "7",
+      "id_usuario": "3"
+    },
+    {
+      "nome_destino": "Tamar Project",
+      "categoria_destino": "other",
+      "descricao_destino": "Tamar Project is an example of...",
+      "cep_destino": "88061160",
+      "numero_destino": "",
+      "localidade_destino": "Rua Professor Ademir Francisco",
+      "cidade_destino": "Florianópolis",
+      "complemento_destino": "",
+      "latitude": "-27.5725419",
+      "longitude": "-48.4280812",
+      "id": "8",
+      "id_usuario": "4"
+    },
+    {
+      "nome_destino": "Nossa Senhora da Lapa Church",
+      "categoria_destino": "outro",
+      "descricao_destino": "Nossa Senhora da Lapa Church...",
+      "cep_destino": "88064670",
+      "numero_destino": "",
+      "localidade_destino": "Rua Alberto Cavalheiro",
+      "cidade_destino": "Florianópolis",
+      "complemento_destino": "",
+      "latitude": "-27.7195226",
+      "longitude": "-48.5634788",
+      "id": "9",
+      "id_usuario": "3"
+    },
+    {
+      "nome_destino": "Beira Mar Avenue",
+      "categoria_destino": "outro",
+      "descricao_destino": "Beira Mar Avenue is a great spot for...",
+      "cep_destino": "88015902",
+      "numero_destino": "",
+      "localidade_destino": "Rua Bocaiúva",
+      "cidade_destino": "Florianópolis",
+      "complemento_destino": "2468",
+      "latitude": "-27.5862485",
+      "longitude": "-48.5480925",
+      "id": "10",
+      "id_usuario": "3"
+    },
+    {
+      "nome_destino": "Lontra Project",
+      "categoria_destino": "parque",
+      "descricao_destino": "Lontra Project is an inspiring place to learn more about... ",
+      "cep_destino": "88066260",
+      "numero_destino": "",
+      "localidade_destino": "Rodovia Francisco Thomaz dos Santos",
+      "cidade_destino": "Florianópolis",
+      "complemento_destino": "de 2090/2091 a 6850/6851",
+      "latitude": "-27.7517229",
+      "longitude": "-48.5098145",
+      "id": "11",
+      "id_usuario": "4"
+    },
+    {
+      "id": "5dc3",
+      "nome_destino": "Joaquina Beach Dunes",
+      "categoria_destino": "praia",
+      "descricao_destino": "Joaquina Beach has the most beautiful dunes...",
+      "cep_destino": "88062600",
+      "numero_destino": "",
+      "localidade_destino": "Avenida Prefeito Acácio Garibaldi S. Thiago",
+      "cidade_destino": "Florianópolis",
+      "complemento_destino": "Hotel nearby the beach and its dunes",
+      "latitude": "-27.6101303",
+      "longitude": "-48.4420933",
+      "id_usuario": "1"
+    },
+    {
+      "id": "d7ed",
+      "nome_destino": "Lagoinha do Leste Trail",
+      "categoria_destino": "trilha",
+      "descricao_destino": "Lagoinha do Leste is one of the most savage hikings...",
+      "cep_destino": "88066260",
+      "numero_destino": "",
+      "localidade_destino": "Rodovia Francisco Thomaz dos Santos",
+      "cidade_destino": "Florianópolis",
+      "complemento_destino": "Matadeiro Beach is one of the starting points",
+      "latitude": "-27.7222353",
+      "longitude": "-48.5041264",
+      "id_usuario": "3775"
+    }
+  ],
+  "login": [
+    {
+      "id": "1",
+      "email_usuario": "altria@email.com",
+      "senha_usuario": "altriapass"
+    },
+    {
+      "id": "4",
+      "email_usuario": "rin@email.com",
+      "senha_usuario": "rinrinpass"
+    },
+    {
+      "id": "3",
+      "email_usuario": "gilgamesh@email.com",
+      "senha_usuario": "gilgameshpass"
+    },
+    {
+      "id": "2",
+      "email_usuario": "emiya@email.com",
+      "senha_usuario": "emiyapass"
+    },
+    {
+      "id": "30c7",
+      "email_usuario": "altria@email.com",
+      "senha_usuario": "altriapass"
+    },
+    {
+      "id": "8824",
+      "email_usuario": "sakura@email.com",
+      "senha_usuario": "sakurapass"
+    },
+    {
+      "id": "a9c3",
+      "email_usuario": "altria@email.com",
+      "senha_usuario": "altriapass"
+    },
+    {
+      "id": "a0d6",
+      "email_usuario": "altria@email.com",
+      "senha_usuario": "altriapass"
+    }
+  ]
+}

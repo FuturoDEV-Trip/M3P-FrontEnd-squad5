@@ -1,0 +1,101 @@
+.tableContainer {
+    display: flex;
+    border-radius: 5px;
+    width: 88%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #586fdf;
+}
+
+th {
+    background-color: #586fdf;
+    color: #cbcae0;
+}
+
+td {
+    font-family: "Josefin Sans", sans-serif;
+    color: #b65987;
+}
+
+th:nth-child(2),
+th:nth-child(3),
+td:nth-child(3),
+th:nth-child(4) {
+    text-align: center;
+}
+
+th:nth-child(1),
+th:nth-child(2),
+th:nth-child(3) {
+    border-right-color: #cbcae0;
+}
+
+td:nth-child(4) {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+.button {
+    border: none;
+    background: none;
+    color: #586fdf;
+}
+
+.icon {
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.icon:hover {
+    color: #b65987;
+}
+
+.error {
+    color: #b65987;
+    font-size: 0.8rem;
+    text-align: left;
+    margin: 5px;
+    font-family: "Josefin Sans", sans-serif;
+    font-style: italic;
+}  
+  
+.successMessage {
+    color: #cbcae0;
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+/* Mobile devices with screen smaller than 480px */
+@media (max-width: 480px) {
+    .tableContainer {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+}
+
+/* Tablets & small screens (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+    .tableContainer {
+        width: 100%;
+        margin-left: 60px;
+        margin-right: 20px;
+    }
+}
+
+/* Laptops & small screens (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .tableContainer {
+        width: 100%;
+        margin-right: 50px;
+        margin-left: 10px;
+    }
+}

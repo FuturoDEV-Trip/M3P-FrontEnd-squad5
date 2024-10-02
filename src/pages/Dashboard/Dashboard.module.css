@@ -1,0 +1,169 @@
+.dashboardContainer {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+.dashboardMenu {
+    max-width: 250px;
+    flex: auto;
+    transition: transform 0.3s ease;
+}
+
+.mainContent {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    margin: 10px 40px;
+}
+
+.mainContent h1 {
+    font-size: 3rem;
+    margin-top: 30px;
+    color: #586fdf;
+    text-align: left;
+}
+  
+.mainContent p {
+    margin-top: 10px;
+    text-align: left;
+    color: #586fdf;
+}
+
+.cardsContainer {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    gap: 30px;
+}
+
+.listContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+}
+
+.listContainer h4 {
+    color: #586fdf;
+    font-family: "Josefin Sans", sans-serif;
+    text-align: left;
+}
+
+.mainView {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 20px;
+    color: #586fdf;
+    font-family: "Josefin Sans", sans-serif;
+    cursor: pointer;
+}
+
+.alternateView {
+    display: flex;
+}
+
+.icon:hover {
+    color: #b65987;
+}
+
+.active {
+    color: #007bff; 
+}
+
+/* Mobile devices with screen smaller than 480px */
+@media (max-width: 480px) {
+    .dashboardMenu {
+        max-width: 80px;
+    }
+
+    .mainContent {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .mainContent h1 {
+        font-size: 2rem; 
+    }
+
+    .mainContent p {
+        font-size: 1rem; 
+    }
+
+    .cardsContainer {
+        flex-direction: column; 
+        align-items: stretch; 
+        gap: 20px;
+    }
+
+    .listContainer h4 {
+        font-size: 0.9rem;
+    }
+
+    .mainView {
+    display: block;    
+    text-align: left;
+    }
+
+    .alternateView {
+        margin-right: 20px;
+    }
+
+}
+
+/* Tablets & small screens (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px)  {
+    .dashboardContainer {
+        flex-direction: column; 
+        margin-left: 60px;
+    }
+
+    .dashboardMenu {
+        order: 1;
+        flex: none; 
+    }
+
+    .mainContent {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 180px; 
+    }
+
+    .cardsContainer {
+        flex-direction: column; 
+        gap: 10px; 
+        margin-bottom: 10px;
+    }
+
+    .listContainer {
+        margin-top: 20px; 
+    }
+
+    .mainView {
+        display: block;    
+        text-align: left;
+    }
+}
+
+/* Laptops & small screens (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .mainContent {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 100px; 
+    }
+
+    .cardsContainer {
+        margin-bottom: 10px;
+    }
+
+    .listContainer {
+        margin-top: 20px; 
+    }
+
+    .mainView {
+        display: block;    
+        text-align: left;
+    }
+}
