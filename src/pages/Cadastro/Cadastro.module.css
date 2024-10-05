@@ -56,7 +56,7 @@
     font-family: "Josefin Sans", sans-serif;
 }
   
-.signupContainer input {
+.signupContainer input, select {
     padding: 10px;
     margin-bottom: 10px;
     outline: none;

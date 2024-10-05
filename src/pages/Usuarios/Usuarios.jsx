@@ -14,6 +14,6 @@ function Usuarios() {
     </main>
     </div>
   );
-};
+}
 
 export default Usuarios;
