@@ -25,13 +25,13 @@ async function getAddressFromCep(cep) {
         };
 
         return {
-            ...address,
+            ...fullAddress,
             ...coordinates
         }; 
     } catch (error) {
             console.error('Falha ao carregar informações do destino ou coordenadas', error);
             throw error;
         }
-};
+}
 
 export default getAddressFromCep;

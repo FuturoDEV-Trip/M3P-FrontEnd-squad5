@@ -53,6 +53,26 @@
       "nascimento_usuario": "2002-02-02",
       "cpf_usuario": "84961305090",
       "cep_usuario": "69312563"
+    },
+    {
+      "id": "057d",
+      "nome_usuario": "RICARDO M GUERREIRO",
+      "email_usuario": "bolamg@gmail.com",
+      "senha_usuario": "12345678",
+      "sexo_usuario": "masculino",
+      "nascimento_usuario": "1965-12-04",
+      "cpf_usuario": "52087670900",
+      "cep_usuario": "88168460"
+    },
+    {
+      "id": "3194",
+      "nome_usuario": "Daine Guerreiro",
+      "email_usuario": "daiv@gmail.com",
+      "senha_usuario": "123456",
+      "sexo_usuario": "feminino",
+      "nascimento_usuario": "1984-08-23",
+      "cpf_usuario": "06954171778",
+      "cep_usuario": "88168460"
     }
   ],
   "destinos": [
@@ -247,6 +267,16 @@
       "id": "a0d6",
       "email_usuario": "altria@email.com",
       "senha_usuario": "altriapass"
+    },
+    {
+      "id": "159d",
+      "email_usuario": "altria@email.com",
+      "senha_usuario": "altriapass"
+    },
+    {
+      "id": "5fa4",
+      "email_usuario": "bolamg@gmail.com",
+      "senha_usuario": "12345678"
     }
   ]
 }
