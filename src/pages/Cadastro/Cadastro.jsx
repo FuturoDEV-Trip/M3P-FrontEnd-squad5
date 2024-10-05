@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import getAddressFromCep from "../../service/addressService";
+/* import getAddressFromCep from "../../service/addressService"; */
 import styles from "./Cadastro.module.css";
 import axios from "axios";
 
@@ -45,7 +45,6 @@ function Cadastro() {
   const {
     register,
     handleSubmit,
-    setValue,
     formState: { errors },
   } = useForm({
     resolver: zodResolver(schema),
@@ -75,8 +74,9 @@ function Cadastro() {
     const cep_usuario = e.target.value.replace(/\D/g, "");
     if (cep_usuario.length === 8) {
       try {
-        const addressData = await getAddressFromCep(cep_usuario); 
-        setEndereco(`${addressData.logradouro}, ${addressData.bairro}, ${addressData.localidade} - ${addressData.uf}`)
+      const response = await axios.get(`https://viacep.com.br/ws/${cep_usuario}/json/`); // Faz a requisição com Axios
+      const data = response.data; // Obtém os dados da resposta
+      setEndereco(`${data.logradouro}, ${data.bairro}, ${data.localidade} - ${data.uf}`);
       } catch (error) {
         console.log("Erro ao carregar informações do endereço", error);
       }
