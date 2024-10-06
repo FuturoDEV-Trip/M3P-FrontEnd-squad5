@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import './CardCarrossel.css';
 import imgIR from './proxima.png';
 import imgVOLTAR from './volte.png';
+import imgEDITAR from './escrever.png';
+import imgEXCLUIR from './excluir.png';
 
 const destinosIniciais = [
   { id: 1, nome: 'Destino 1', imagem: 'https://via.placeholder.com/200x100?text=Destino+1' },
@@ -17,17 +19,14 @@ const CardCarrossel = () => {
   const [indiceAtual, setIndiceAtual] = useState(0);
   const cardsPorPagina = 3;
 
-  // Função para excluir um destino
   const excluirDestino = (id) => {
     const novosDestinos = destinos.filter((destino) => destino.id !== id);
     setDestinos(novosDestinos);
   };
 
-  // Função para editar um destino (aqui você pode adaptar para abrir um modal ou formulário)
   const editarDestino = (id) => {
     const destinoParaEditar = destinos.find((destino) => destino.id === id);
     alert(`Editar destino: ${destinoParaEditar.nome}`);
-    // Aqui você poderia adicionar a lógica para abrir um formulário ou modal para editar o destino
   };
 
   const proximo = () => {
@@ -59,8 +58,12 @@ const CardCarrossel = () => {
               <button className="btnVejaMais">Veja mais</button>
             </div>
             <div className="botoes-acoes">
-              <button className="btnEditar" onClick={() => editarDestino(destino.id)}>Editar</button>
-              <button className="btnExcluir" onClick={() => excluirDestino(destino.id)}>Excluir</button>
+              <button className="btnEditar" onClick={() => editarDestino(destino.id)}>
+                <img src={imgEDITAR} alt="Editar" />
+              </button>
+              <button className="btnExcluir" onClick={() => excluirDestino(destino.id)}>
+                <img src={imgEXCLUIR} alt="Excluir" />
+              </button>
             </div>
           </div>
 
