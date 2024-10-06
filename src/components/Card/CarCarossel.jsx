@@ -1,30 +1,76 @@
 import React, { useState } from 'react';
-import './CardCarrossel.css'; 
+import './CardCarrossel.css';
+import imgIR from './proxima.png';
+import imgVOLTAR from './volte.png';
 
-const imagens = [
-  'https://via.placeholder.com/600x300?text=Imagem+1',
-  'https://via.placeholder.com/600x300?text=Imagem+2',
-  'https://via.placeholder.com/600x300?text=Imagem+3',
+const destinosIniciais = [
+  { id: 1, nome: 'Destino 1', imagem: 'https://via.placeholder.com/200x100?text=Destino+1' },
+  { id: 2, nome: 'Destino 2', imagem: 'https://via.placeholder.com/200x100?text=Destino+2' },
+  { id: 3, nome: 'Destino 3', imagem: 'https://via.placeholder.com/200x100?text=Destino+3' },
+  { id: 4, nome: 'Destino 4', imagem: 'https://via.placeholder.com/200x100?text=Destino+4' },
+  { id: 5, nome: 'Destino 5', imagem: 'https://via.placeholder.com/200x100?text=Destino+5' },
+  { id: 6, nome: 'Destino 6', imagem: 'https://via.placeholder.com/200x100?text=Destino+6' },
 ];
 
-const Carrossel = () => {
+const CardCarrossel = () => {
+  const [destinos, setDestinos] = useState(destinosIniciais);
   const [indiceAtual, setIndiceAtual] = useState(0);
+  const cardsPorPagina = 3;
+
+  // Função para excluir um destino
+  const excluirDestino = (id) => {
+    const novosDestinos = destinos.filter((destino) => destino.id !== id);
+    setDestinos(novosDestinos);
+  };
+
+  // Função para editar um destino (aqui você pode adaptar para abrir um modal ou formulário)
+  const editarDestino = (id) => {
+    const destinoParaEditar = destinos.find((destino) => destino.id === id);
+    alert(`Editar destino: ${destinoParaEditar.nome}`);
+    // Aqui você poderia adicionar a lógica para abrir um formulário ou modal para editar o destino
+  };
 
   const proximo = () => {
-    setIndiceAtual((prev) => (prev + 1) % imagens.length);
+    setIndiceAtual((prev) => Math.min(prev + 1, Math.ceil(destinos.length / cardsPorPagina) - 1));
   };
 
   const anterior = () => {
-    setIndiceAtual((prev) => (prev - 1 + imagens.length) % imagens.length);
+    setIndiceAtual((prev) => Math.max(prev - 1, 0));
   };
+
+  const inicio = indiceAtual * cardsPorPagina;
+  const cardsVisiveis = destinos.slice(inicio, inicio + cardsPorPagina);
 
   return (
     <div className="carrossel">
-      <button onClick={anterior}>Anterior</button>
-      <img src={imagens[indiceAtual]} alt={`Imagem ${indiceAtual + 1}`} />
-      <button onClick={proximo}>Próximo</button>
+      <div className="seta" onClick={anterior} style={{ opacity: indiceAtual === 0 ? 0.5 : 1 }}>
+        <img src={imgVOLTAR} alt="Anterior" />
+      </div>
+      <div className="cards-container">
+        {cardsVisiveis.map((destino) => (
+          <div className="card" key={destino.id}>
+            <img src={destino.imagem} alt={destino.nome} />
+            <div className="orgIMG">
+              <ul>
+                <li>Nome: {destino.nome}</li>
+                <li>Cidade: {destino.nome}</li>
+                <li>Categoria: {destino.nome}</li>
+              </ul>
+              <button className="btnVejaMais">Veja mais</button>
+            </div>
+            <div className="botoes-acoes">
+              <button className="btnEditar" onClick={() => editarDestino(destino.id)}>Editar</button>
+              <button className="btnExcluir" onClick={() => excluirDestino(destino.id)}>Excluir</button>
+            </div>
+          </div>
+
+        ))}
+      </div>
+      <div className="seta" onClick={proximo} style={{ opacity: inicio + cardsPorPagina >= destinos.length ? 0.5 : 1 }}>
+        <img src={imgIR} alt="Próximo" />
+      </div>
     </div>
   );
 };
 
-export default Carrossel;
+export default CardCarrossel;
