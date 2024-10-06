@@ -1,0 +1,11 @@
+.carrossel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .carrossel img {
+    max-width: 100%;
+    max-height: 300px;
+    margin: 0 10px;
+  }
