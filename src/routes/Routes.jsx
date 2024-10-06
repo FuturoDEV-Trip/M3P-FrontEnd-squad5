@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import PrivateRoute from './PrivateRoute';
 import Cadastro from '../pages/Cadastro/Cadastro';
 import Login from '../pages/Login/Login';
@@ -9,13 +9,15 @@ import AdicionarDestinos from '../pages/Destinos/AdicionarDestinos';
 import EditarDestino from '../pages/Destinos/EditarDestino';
 
 function AppRoutes() {
+
     return (
         <Routes>
-            {/* Public Routes */}
-            <Route path="/" element={<Login />} />
+
+            <Route path='/' element={<Navigate to="/login" />} />
+
+            <Route path="/login" element={<Login />} />
             <Route path="/cadastro" element={<Cadastro />} />
 
-            {/* Private Routes */}
             <Route element={<PrivateRoute />}>
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/usuarios" element={<Usuarios />} />
