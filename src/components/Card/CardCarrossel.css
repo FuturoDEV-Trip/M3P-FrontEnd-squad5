@@ -22,7 +22,7 @@
   text-align: center;
   border: 1px solid #ccc;
   border-radius: 10px;
-  background-color: #007bff;
+  background-color: #586fdf;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -30,8 +30,8 @@
 
 .card img {
   max-width: 100%;
-  max-height: 200px; 
-  object-fit: cover; 
+  max-height: 200px;
+  object-fit: cover;
   border-radius: 10px;
 }
 
@@ -50,61 +50,68 @@
   margin: 4px 0;
 }
 
-.btnVejaMais {
-  width: 100%;
-  height: 4vh;
-  border-radius: 5px;
-  border: 1px solid #CCC;
-  background-color: #fff;
-  cursor: pointer;
-}
-
 .botoes-acoes {
-  position: absolute;
-  top: 10px;
-  right: 10px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   gap: 10px;
 }
 
-.botoes-acoes button {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-}
-
 .botoes-acoes button img {
-  width: 24px;
-  height: 24px;
+  width: 27px;
+  height: 27px;
 }
 
-.btnEditar img, .btnExcluir img {
-  width: 24px;
-  height: 24px;
+.btnEditar img,
+.btnExcluir img {
+  width: 27px;
+  height: 27px;
 }
 
-.btnEditar:hover img, .btnExcluir:hover img {
+.btnEditar:hover img,
+.btnExcluir:hover img {
   opacity: 0.8;
 }
 
-.btnEditar {
-  background-color: #007bff;
+.btnEditar, .btnExcluir {
+  background-color: #586fdf;
   border: none;
   color: #fff;
-  border-radius: 5px;
+  border-radius: 10px; 
+  padding: 5px;
   cursor: pointer;
-}
-
-.btnExcluir {
-  background-color: #dc3545;
-  border: none;
-  color: #fff;
-  border-radius: 5px;
-  cursor: pointer;
+  transition: all 0.3s ease; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
 }
 
 .btnEditar:hover, .btnExcluir:hover {
+  background-color: #3d4eb8; 
+  transform: scale(1.05); 
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); 
+}
+
+
+.btnVejaMais {
+  background-color: #586fdf;
+  padding: 7px 20px; 
+  border-radius: 25px; 
+  border: 2px solid #3d4eb8; 
+  color: rgb(0, 0, 0); 
+  font-size: 16px; 
+  font-weight: bold; 
+  cursor: pointer;
+  transition: all 0.3s ease; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+.btnVejaMais:hover {
+  background-color: #3d4eb8; 
+  transform: scale(1.05); 
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); 
+}
+
+.btnEditar:hover,
+.btnExcluir:hover {
   opacity: 0.8;
 }

@@ -4,9 +4,10 @@ import imgIR from './proxima.png';
 import imgVOLTAR from './volte.png';
 import imgEDITAR from './escrever.png';
 import imgEXCLUIR from './excluir.png';
+import teste from './teste.jpg'
 
 const destinosIniciais = [
-  { id: 1, nome: 'Destino 1', imagem: 'https://via.placeholder.com/200x100?text=Destino+1' },
+  { id: 1, nome: 'Destino 1', imagem: teste },
   { id: 2, nome: 'Destino 2', imagem: 'https://via.placeholder.com/200x100?text=Destino+2' },
   { id: 3, nome: 'Destino 3', imagem: 'https://via.placeholder.com/200x100?text=Destino+3' },
   { id: 4, nome: 'Destino 4', imagem: 'https://via.placeholder.com/200x100?text=Destino+4' },
@@ -55,17 +56,22 @@ const CardCarrossel = () => {
                 <li>Cidade: {destino.nome}</li>
                 <li>Categoria: {destino.nome}</li>
               </ul>
-              <button className="btnVejaMais">Veja mais</button>
             </div>
+
+
             <div className="botoes-acoes">
+              <button className="btnVejaMais">Explorar</button>
+             
               <button className="btnEditar" onClick={() => editarDestino(destino.id)}>
                 <img src={imgEDITAR} alt="Editar" />
               </button>
+              
               <button className="btnExcluir" onClick={() => excluirDestino(destino.id)}>
                 <img src={imgEXCLUIR} alt="Excluir" />
               </button>
             </div>
           </div>
+
 
         ))}
       </div>
