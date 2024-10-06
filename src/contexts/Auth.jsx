@@ -1,18 +1,19 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { set } from 'react-hook-form';
 
 const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
     const [user, setUser] = useState(() => JSON.parse(localStorage.getItem('user')));
-    const [token, setToken] = useState(() => localStorage.getItem('token')); 
+    const [token, setToken] = useState(() => localStorage.getItem('token'));
     const navigate = useNavigate();
-    
+
     useEffect(() => {
-        if (user) {
+        if (user && token) {
             localStorage.setItem('user', JSON.stringify(user));
-            localStorage.setItem('token', token); 
+            localStorage.setItem('token', token);
         } else {
             localStorage.removeItem('user');
             localStorage.removeItem('token');
@@ -24,28 +25,15 @@ export function AuthProvider({ children }) {
 
             const loginResponse = await axios.post('http://localhost:3000/login', { email_usuario, senha_usuario });
             const loginData = loginResponse.data;
+            // debugger
+            if (loginData && loginData.Token && loginData.usuario) {
+                localStorage.setItem('user', JSON.stringify(loginData.usuario));
+                localStorage.setItem('token', loginData.Token);
 
-            if (loginData && loginData.Token) {
-                const userResponse = await axios.get('http://localhost:3000/usuarios', {
-                    headers: {
-                        Authorization: loginData.Token 
-                    },
-                    params: { email_usuario }
-                });
-                // debugger;
-                const [userData] = userResponse.data;
+                setUser(loginData.usuario);
+                setToken(loginData.Token);
 
-                if (userData) {
-                    localStorage.setItem('user', JSON.stringify(userData));
-                    localStorage.setItem('token', loginData.Token); 
-                    setUser(userData);
-                    console.log(loginData)
-                    setToken(loginData.Token); 
-
-                    navigate('/dashboard');
-                } else {
-                    alert('Usuário não encontrado');
-                }
+                navigate('/destinos');
             } else {
                 alert('Falha na autenticação');
             }
