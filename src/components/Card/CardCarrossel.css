@@ -11,78 +11,100 @@
   width: 70vw;
   height: 50vh;
   align-items: center;
-
 }
 
 .card {
+  position: relative;
   width: 500px;
   height: 340px;
-  padding: 10px;
+  padding: 20px;
   margin: 10px;
   text-align: center;
   border: 1px solid #ccc;
-  border-radius: 8px;
+  border-radius: 10px;
   background-color: #007bff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .card img {
-  width: 100%;
-  height: auto;
+  max-width: 100%;
+  max-height: 200px; 
+  object-fit: cover; 
   border-radius: 10px;
 }
 
 .seta img {
   width: 70px;
+  cursor: pointer;
 }
 
 .orgIMG ul {
   list-style: none;
   margin: 2px;
+  padding: 0;
 }
 
 .orgIMG li {
-  margin: 4px;
+  margin: 4px 0;
 }
 
 .btnVejaMais {
   width: 100%;
   height: 4vh;
   border-radius: 5px;
-  border: 1px solid #CCCC;
-}
-
-
-
-.card {
-  position: relative; 
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
+  border: 1px solid #CCC;
   background-color: #fff;
+  cursor: pointer;
 }
 
 .botoes-acoes {
   position: absolute;
-  top: 20px; 
-  right: 20px; 
+  top: 10px;
+  right: 10px;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.btnEditar, .btnExcluir {
-  padding: 5px 10px;
+.botoes-acoes button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.botoes-acoes button img {
+  width: 24px;
+  height: 24px;
+}
+
+.btnEditar img, .btnExcluir img {
+  width: 24px;
+  height: 24px;
+}
+
+.btnEditar:hover img, .btnExcluir:hover img {
+  opacity: 0.8;
+}
+
+.btnEditar {
   background-color: #007bff;
   border: none;
   color: #fff;
-  cursor: pointer;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .btnExcluir {
-  background-color: #dc3545; 
+  background-color: #dc3545;
+  border: none;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .btnEditar:hover, .btnExcluir:hover {
-  opacity: 0.8; 
+  opacity: 0.8;
 }
