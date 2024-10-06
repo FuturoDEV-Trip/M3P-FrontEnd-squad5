@@ -13,6 +13,7 @@ const destinosIniciais = [
   { id: 4, nome: 'Destino 4', imagem: 'https://via.placeholder.com/200x100?text=Destino+4' },
   { id: 5, nome: 'Destino 5', imagem: 'https://via.placeholder.com/200x100?text=Destino+5' },
   { id: 6, nome: 'Destino 6', imagem: 'https://via.placeholder.com/200x100?text=Destino+6' },
+  { id: 7, nome: 'Destino 7', imagem: 'https://via.placeholder.com/200x100?text=Destino+7' },
 ];
 
 const CardCarrossel = () => {
