@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import './CardCarrossel.css';
-import imgIR from './proxima.png';
-import imgVOLTAR from './volte.png';
-import imgEDITAR from './escrever.png';
-import imgEXCLUIR from './excluir.png';
-import teste from './teste.jpg';
+import imgIR from './img/proxima.png';
+import imgVOLTAR from './img/volte.png';
+import imgEDITAR from './img/escrever.png';
+import imgEXCLUIR from './img/excluir.png';
+import teste from './img/teste.jpg';
 import ModalCardDestinos from './ModalCardDestinos';
 
 
@@ -63,7 +63,6 @@ const CardCarrossel = () => {
               <ul>
                 <li>Nome: {destino.nome}</li>
                 <li>Cidade: {destino.cidade}</li>
-                <li>Categoria: {destino.categoria}</li>
               </ul>
             </div>
             <div className="botoes-acoes">
