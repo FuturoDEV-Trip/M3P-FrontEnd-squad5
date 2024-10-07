@@ -7,6 +7,7 @@ import ListaPaginaDestinos from '../../components/Lista/ListaPaginaDestinos';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import BotaoVoltar from '../../components/Botao/BotaoVoltar';
 import styles from './Destinos.module.css';
+import CardCarrossel from '../../components/Card/CarCarossel';
 
 function Destinos() {
     const [viewMode, setViewMode] = useState('list');
@@ -38,7 +39,7 @@ function Destinos() {
                     <BotaoVoltar />
                 </div>
                 <div className={styles.alternateView}>
-                    {viewMode === 'list' ? <ListaPaginaDestinos /> : <MapaPaginaDestinos />}
+                    {viewMode === 'list' ? <CardCarrossel /> : <MapaPaginaDestinos />}
                 </div>
             </main>
         </div>
