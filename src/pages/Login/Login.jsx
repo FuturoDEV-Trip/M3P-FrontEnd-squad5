@@ -21,7 +21,7 @@ function Login() {
     console.log(data);
     try {
       await signIn(data);
-      navigate('/dashboard');
+      navigate('/');
     } catch (error) {
       alert(error.message || 'Falha no login!')
     }

@@ -19,8 +19,8 @@ function Sidebar() {
                     <h2>Check Green</h2> 
                     <div className={styles.sidebarLinks}>
                     <ul>
-                        <li><Link to="/dashboard" 
-                            className={`${styles.link} ${isActive('/dashboard') ? styles.activeLink : ''}`}><House /><span>Lounge</span></Link></li>
+                        <li><Link to="/" 
+                            className={`${styles.link} ${isActive('/') ? styles.activeLink : ''}`}><House /><span>Lounge</span></Link></li>
                         <li><Link to="/usuarios" 
                             className={`${styles.link} ${isActive('/usuarios') ? styles.activeLink : ''}`}><User /><span>Guias</span></Link></li>
                         <li><Link to="/destinos" 

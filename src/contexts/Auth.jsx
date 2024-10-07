@@ -33,7 +33,7 @@ export function AuthProvider({ children }) {
                 setUser(loginData.usuario);
                 setToken(loginData.Token);
 
-                navigate('/destinos');
+                navigate('/');
             } else {
                 alert('Falha na autenticação');
             }

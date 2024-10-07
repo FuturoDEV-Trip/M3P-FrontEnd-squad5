@@ -213,7 +213,7 @@ function Cadastro() {
 
         <p>
           Já tem uma conta?{" "}
-          <Link className={styles.link} to="/">
+          <Link className={styles.link} to="/login">
             Embarque!
           </Link>
         </p>
