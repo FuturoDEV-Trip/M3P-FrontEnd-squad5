@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from 'axios';
 import styles from './CardsDashboard.module.css';
-import { useAuth } from '../../contexts/Auth';
 
 function CardsDashboard() {
     const [places, setPlaces] = useState([]);
     const [expanded, setExpanded] = useState({});
-    const { user } = useAuth();
 
     const toggleExpand = (id) => {
         setExpanded((prevState) => ({
@@ -17,21 +15,16 @@ function CardsDashboard() {
 
     useEffect(() => {
         const fetchPlaces = async () => {
-            if (!user || !user.token) {
-                return; 
-            }
             try {
-                const response = await axios.get('http://localhost:3000/destinos', {
-                    headers: { Authorization: `Bearer ${user.token}` }
-                });
-                setPlaces(response.data);
+                const response = await axios.get('http://localhost:3000/');
+                setPlaces(response.data.destinos);
             } catch (error) {
                 console.error('Erro ao carregar informações do destino:', error);
             }
         };
 
         fetchPlaces();
-    }, [user]);
+    }, []);
 
     return (
         <div className={styles.cardsContainer}>

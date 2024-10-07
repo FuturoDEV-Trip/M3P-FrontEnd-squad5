@@ -10,10 +10,8 @@ function ListaDashboard() {
 
     async function loadPlaces() {
         try {
-            const response = await axios.get('http://localhost:3000/destinos', {
-                headers: { Authorization: `Bearer ${user.token}` }
-            });
-            setPlaces(response.data);
+            const response = await axios.get('http://localhost:3000/');
+            setPlaces(response.data.destinos);
         } catch (error) {
             console.log('Falha ao carregar destinos', error);
         }
@@ -21,9 +19,7 @@ function ListaDashboard() {
 
     async function loadUsers() {
         try {
-            const response = await axios.get('http://localhost:3000/usuarios', {
-                headers: { Authorization: `Bearer ${user.token}` }
-            });
+            const response = await axios.get('http://localhost:3000/usuarios');
             setUsers(response.data);
         } catch (error) {
             console.log('Falha ao carregar usuários', error);
@@ -33,7 +29,7 @@ function ListaDashboard() {
     useEffect(() => {
         loadPlaces();
         loadUsers();
-    }, [user.token]);
+    }, []);
 
     const placeData = places.map(place => {
         if (user && user.id === place.id_usuario) {

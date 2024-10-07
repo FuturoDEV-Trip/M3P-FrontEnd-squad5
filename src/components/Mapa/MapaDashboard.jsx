@@ -7,7 +7,6 @@ import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import { renderToString } from 'react-dom/server';
 import { MapPinCheckInside } from 'lucide-react';
-import { useAuth } from '../../contexts/Auth';
 
 const svgIcon = renderToString(<MapPinCheckInside color="#586fdf" />);
 const base64Icon = `data:image/svg+xml;base64,${btoa(svgIcon)}`;
@@ -49,20 +48,33 @@ function MapMarkers({ places }) {
 
 function MapaDashboard({ center = [-27.593500, -48.558540], zoom = 13 }) {
   const [places, setPlaces] = useState([]);
-  const { user } = useAuth();
 
   useEffect(() => {
     const fetchPlaces = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/destinos', {
-          headers: { Authorization: `Bearer ${user.token}` }
+        const response = await axios.get('http://localhost:3000/');
+        const destinos = response.data.destinos;
+
+        const placesWithCoordinates = destinos.map((place) => {
+          let latitude, longitude;
+
+          if (place.coordenadas_destino) {
+            const regex = /Latitude:\s*([\d.-]+).*Longitude:\s*([\d.-]+)/;
+            const match = place.coordenadas_destino.match(regex);
+
+            if (match) {
+              latitude = parseFloat(match[1].replace(',', '.'));
+              longitude = parseFloat(match[2].replace(',', '.'));
+            }
+          }
+
+          return { 
+            ...place, 
+            latitude: latitude || center[0], 
+            longitude: longitude || center[1]
+          };
         });
-        const placesWithCoordinates = await Promise.all(
-          response.data.map(async (place) => {
-            const addressData = await getAddressFromCep(place.cep_destino);
-            return { ...place, ...addressData }; 
-          })
-        );
+
         setPlaces(placesWithCoordinates);
       } catch (error) {
         console.error('Falha ao carregar informações do destino:', error);
@@ -70,7 +82,7 @@ function MapaDashboard({ center = [-27.593500, -48.558540], zoom = 13 }) {
     };
 
     fetchPlaces();
-  }, [user.token]);
+  }, []);
 
   return (
     <MapContainer 

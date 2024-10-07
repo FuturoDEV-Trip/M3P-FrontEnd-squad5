@@ -18,13 +18,8 @@ function Dashboard() {
 
     async function fetchUserCount() {
         try {
-            const config = {
-                headers: {
-                    Authorization: `Bearer ${user?.token}`,
-                },
-            };
-            const response = await axios.get('http://localhost:3000/usuarios', config);
-            setUserCount(response.data.length);
+            const response = await axios.get('http://localhost:3000/');
+            setUserCount(response.data.usuariosAtivos);
         } catch (error) {
             console.log('Falha ao contabilizar usuários', error);
         }
@@ -32,13 +27,8 @@ function Dashboard() {
 
     async function fetchPlaceCount() {
         try {
-            const config = {
-                headers: {
-                    Authorization: `Bearer ${user?.token}`, 
-                },
-            };
-            const response = await axios.get('http://localhost:3000/destinos', config);
-            setPlaceCount(response.data.length);
+            const response = await axios.get('http://localhost:3000/');
+            setPlaceCount(response.data.totalLocais);
         } catch (error) {
             console.log('Falha ao contabilizar destinos', error);
         }
