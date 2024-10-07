@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import 'leaflet/dist/leaflet.css';
-import { UsersRound, MapPinned, TableProperties } from 'lucide-react';
+import { UsersRound, MapPinned, List, LayoutGrid } from 'lucide-react';
 import { useAuth } from '../../contexts/Auth';
 import MapaDashboard from '../../components/Mapa/MapaDashboard';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import ListaDashboard from '../../components/Lista/ListaDashboard';
+import CardsDashboard from '../../components/Card/CardsDashboard';
 import Card from '../../components/Card/Card';
 import styles from './Dashboard.module.css';
 
@@ -62,7 +63,11 @@ function Dashboard() {
                         <div className={styles.listContainer}>
                             <h4>Descubra destinos sustentáveis prontos para serem explorados:</h4>
                             <div className={styles.mainView}>
-                            <TableProperties 
+                            <LayoutGrid 
+                            className={`${styles.icon} ${viewMode === 'cards' ? styles.active : ''}`}
+                            onClick={() => setViewMode('cards')}
+                            />
+                            <List 
                             className={`${styles.icon} ${viewMode === 'list' ? styles.active : ''}`}
                             onClick={() => setViewMode('list')}
                             />
@@ -73,7 +78,7 @@ function Dashboard() {
                             </div>
                         </div>
                         <div className={styles.alternateView}>
-                            {viewMode === 'list' ? <ListaDashboard /> : <MapaDashboard />}
+                            {viewMode === 'cards' ? <CardsDashboard /> : viewMode === 'list' ? <ListaDashboard /> : <MapaDashboard />}
                         </div>
                 </main>
             </div>
