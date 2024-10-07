@@ -8,21 +8,23 @@ import ListaDashboard from '../../components/Lista/ListaDashboard';
 import CardsDashboard from '../../components/Card/CardsDashboard';
 import Card from '../../components/Card/Card';
 import styles from './Dashboard.module.css';
+import axios from 'axios';
 
 function Dashboard() {
     const [userCount, setUserCount] = useState(0);
     const [placeCount, setPlaceCount] = useState(0);
-    const [viewMode, setViewMode] = useState('list');
+    const [viewMode, setViewMode] = useState('cards');
     const { user } = useAuth();
 
     async function fetchUserCount() {
         try {
-            const response = await fetch('http://localhost:3000/usuarios');
-            if (!response.ok) {
-                throw new Error('Ops! Servidor sem resposta.');
-            }
-            const data = await response.json();
-            setUserCount(data.length);
+            const config = {
+                headers: {
+                    Authorization: `Bearer ${user?.token}`,
+                },
+            };
+            const response = await axios.get('http://localhost:3000/usuarios', config);
+            setUserCount(response.data.length);
         } catch (error) {
             console.log('Falha ao contabilizar usuários', error);
         }
@@ -30,12 +32,13 @@ function Dashboard() {
 
     async function fetchPlaceCount() {
         try {
-            const response = await fetch('http://localhost:3000/destinos');
-            if (!response.ok) {
-                throw new Error('Ops! Servidor sem resposta.');
-            }
-            const data = await response.json();
-            setPlaceCount(data.length);
+            const config = {
+                headers: {
+                    Authorization: `Bearer ${user?.token}`, 
+                },
+            };
+            const response = await axios.get('http://localhost:3000/destinos', config);
+            setPlaceCount(response.data.length);
         } catch (error) {
             console.log('Falha ao contabilizar destinos', error);
         }
@@ -53,7 +56,11 @@ function Dashboard() {
                 </div>
                 <main className={styles.mainContent}>
                     <h1>Lounge</h1>
-                    <p>Que bom ter você aqui, {user?.nome_usuario || ''}! Vamos explorar novos destinos?</p>
+                    {user ? (
+                        <p>Que bom ter você aqui, {user?.nome_usuario || ''}! Vamos explorar novos destinos?</p>
+                    ) : (
+                        <p>Bem-vindo(a) ao Check Green! Explore destinos sustentáveis ao redor do mundo.</p>
+                    )}
 
                         <div className={styles.cardsContainer}>
                             <Card title="Guias" total={userCount} iconElement={UsersRound} />

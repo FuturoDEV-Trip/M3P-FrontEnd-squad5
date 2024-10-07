@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import axios from 'axios';
 import styles from './ListaDashboard.module.css'; 
 import { useAuth } from "../../contexts/Auth";
 
@@ -9,12 +10,10 @@ function ListaDashboard() {
 
     async function loadPlaces() {
         try {
-            const response = await fetch('http://localhost:3000/destinos');
-            if (!response.ok) {
-                throw new Error('Ops! Servidor sem resposta.');
-            }
-            const data = await response.json();
-            setPlaces(data);
+            const response = await axios.get('http://localhost:3000/destinos', {
+                headers: { Authorization: `Bearer ${user.token}` }
+            });
+            setPlaces(response.data);
         } catch (error) {
             console.log('Falha ao carregar destinos', error);
         }
@@ -22,12 +21,10 @@ function ListaDashboard() {
 
     async function loadUsers() {
         try {
-            const response = await fetch('http://localhost:3000/usuarios');
-            if (!response.ok) {
-                throw new Error('Ops! Servidor sem resposta.');
-            }
-            const data = await response.json();
-            setUsers(data);
+            const response = await axios.get('http://localhost:3000/usuarios', {
+                headers: { Authorization: `Bearer ${user.token}` }
+            });
+            setUsers(response.data);
         } catch (error) {
             console.log('Falha ao carregar usuários', error);
         }
@@ -36,15 +33,13 @@ function ListaDashboard() {
     useEffect(() => {
         loadPlaces();
         loadUsers();
-    }, []);
+    }, [user.token]);
 
     const placeData = places.map(place => {
-        // Check if the current place belongs to the logged-in user
         if (user && user.id === place.id_usuario) {
             return { ...place, guideName: user.nome_usuario };
         }
 
-        // Find the corresponding user from the users array
         const guide = users.find(u => u.id === place.id_usuario);
         return {
             ...place,
