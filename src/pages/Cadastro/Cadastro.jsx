@@ -73,8 +73,8 @@ function Cadastro() {
     const cep_usuario = e.target.value.replace(/\D/g, "");
     if (cep_usuario.length === 8) {
       try {
-      const response = await axios.get(`https://viacep.com.br/ws/${cep_usuario}/json/`); // Faz a requisição com Axios
-      const data = response.data; // Obtém os dados da resposta
+      const response = await axios.get(`https://viacep.com.br/ws/${cep_usuario}/json/`);
+      const data = response.data;
       setEndereco(`${data.logradouro}, ${data.bairro}, ${data.localidade} - ${data.uf}`);
       } catch (error) {
         console.log("Erro ao carregar informações do endereço", error);
