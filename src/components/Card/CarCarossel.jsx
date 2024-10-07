@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import './CardCarrossel.css';
-import imgIR from './img/proxima.png';
-import imgVOLTAR from './img/volte.png';
-import imgEDITAR from './img/escrever.png';
-import imgEXCLUIR from './img/excluir.png';
-import teste from './img/teste.jpg';
+import imgIR from '../../../public/img/proxima.png';
+import imgVOLTAR from '../../../public//img/volte.png';
+import imgEDITAR from '../../../public//img/escrever.png';
+import imgEXCLUIR from '../../../public//img/excluir.png';
+import teste from '../../../public//img/teste.jpg';
 import ModalCardDestinos from './ModalCardDestinos';
 
 
