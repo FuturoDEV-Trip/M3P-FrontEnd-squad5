@@ -3,11 +3,9 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-/* import getAddressFromCep from "../../service/addressService"; */
 import styles from "./Cadastro.module.css";
 import axios from "axios";
 
-/* import { v4 as uuidv4 } from 'uuid'; */
 
 // Validation with Zod
 const schema = z.object({
@@ -39,6 +37,7 @@ const schema = z.object({
       message: "CPF precisa ser um número válido",
     }),
   cep_usuario: z.string().nonempty({ message: "CEP é obrigatório" }),
+  endereco_usuario: z.string().nonempty({ message:"Endereço é Obrigatório"})
 });
 
 function Cadastro() {
