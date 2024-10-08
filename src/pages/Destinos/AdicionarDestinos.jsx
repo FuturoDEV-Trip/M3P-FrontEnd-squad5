@@ -26,7 +26,7 @@ function AdicionarDestinos() {
       setSuccessMessage('Destino cadastrado com sucesso!');
       alert('Destino cadastrado com sucesso!');
       setTimeout(() => {
-          navigate('/dashboard');
+          navigate('/');
       }, 2000);
   } catch (error) {
       console.error('Erro ao cadastrar destino', error);
@@ -150,7 +150,7 @@ function AdicionarDestinos() {
             </div>
 
             <div className={styles.placesGroup}>
-              <label htmlFor="number">Number:</label>
+              <label htmlFor="number">Número:</label>
               <input
                 type="number"
                 id="number"

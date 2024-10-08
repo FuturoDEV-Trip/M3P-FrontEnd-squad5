@@ -21,7 +21,7 @@ function Login() {
     console.log(data);
     try {
       await signIn(data);
-      navigate('/dashboard');
+      navigate('/');
     } catch (error) {
       alert(error.message || 'Falha no login!')
     }
@@ -62,7 +62,7 @@ function Login() {
 
               <button type="submit" className={styles.loginButton} disabled={isSubmitting}>{isSubmitting ? 'Carregando...': 'Login'}</button>
 
-              <p>Ainda não tem uma conta? <span><Link className={styles.link} to="/cadastro">Cadastro</Link></span></p>
+              <p>Ainda não tem cartão de embarque? <span><Link className={styles.link} to="/cadastro">Faça Check-in!</Link></span></p>
 
             </form>
             </fieldset>

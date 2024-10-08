@@ -16,8 +16,8 @@ function CardsDashboard() {
     useEffect(() => {
         const fetchPlaces = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/destinos');
-                setPlaces(response.data);
+                const response = await axios.get('http://localhost:3000/');
+                setPlaces(response.data.destinos);
             } catch (error) {
                 console.error('Erro ao carregar informações do destino:', error);
             }
