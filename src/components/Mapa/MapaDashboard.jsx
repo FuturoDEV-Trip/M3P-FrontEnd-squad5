@@ -53,34 +53,34 @@ function MapaDashboard({ center = [-27.593500, -48.558540], zoom = 13 }) {
     const fetchPlaces = async () => {
       try {
         const response = await axios.get('http://localhost:3000/');
+        console.log('Resposta da API:', response.data);
         const destinos = response.data.destinos;
-
+  
         const placesWithCoordinates = destinos.map((place) => {
           let latitude, longitude;
-
+  
           if (place.coordenadas_destino) {
-            const regex = /Latitude:\s*([\d.-]+).*Longitude:\s*([\d.-]+)/;
-            const match = place.coordenadas_destino.match(regex);
-
-            if (match) {
-              latitude = parseFloat(match[1].replace(',', '.'));
-              longitude = parseFloat(match[2].replace(',', '.'));
+            const coordenadasArray = place.coordenadas_destino.split(',');
+  
+            if (coordenadasArray.length === 2) {
+              latitude = parseFloat(coordenadasArray[0]);
+              longitude = parseFloat(coordenadasArray[1]);
             }
           }
-
+  
           return { 
             ...place, 
-            latitude: latitude || center[0], 
-            longitude: longitude || center[1]
+            latitude: latitude || -27.593500, 
+            longitude: longitude ||  -48.558540 
           };
         });
-
+  
         setPlaces(placesWithCoordinates);
       } catch (error) {
-        console.error('Falha ao carregar informações do destino:', error);
+        console.error('Falha ao carregar informações do destino:', error); 
       }
     };
-
+  
     fetchPlaces();
   }, []);
 

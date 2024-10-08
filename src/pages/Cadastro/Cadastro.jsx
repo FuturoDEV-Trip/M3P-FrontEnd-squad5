@@ -3,11 +3,8 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-/* import getAddressFromCep from "../../service/addressService"; */
 import styles from "./Cadastro.module.css";
 import axios from "axios";
-
-/* import { v4 as uuidv4 } from 'uuid'; */
 
 // Validation with Zod
 const schema = z.object({
@@ -39,6 +36,7 @@ const schema = z.object({
       message: "CPF precisa ser um número válido",
     }),
   cep_usuario: z.string().nonempty({ message: "CEP é obrigatório" }),
+  endereco_usuario: z.string().nonempty({ message: "Endereço é obrigatório" }),
 });
 
 function Cadastro() {
@@ -52,19 +50,28 @@ function Cadastro() {
 
   const [successMessage, setSuccessMessage] = useState("");
   const [generalError, setGeneralError] = useState("");
-  const [endereco, setEndereco] =useState("")
+  const [endereco, setEndereco] = useState("");
 
   const navigate = useNavigate();
 
   async function onSubmit(data) {
+    console.log(data); // Verifica os dados antes de enviar
     try {
-      await axios.post("http://localhost:3000/usuarios", data);
+      await axios.post("http://localhost:3000/usuarios", data, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
       setSuccessMessage("Embarque de usuário realizado com sucesso!");
       alert("Embarque realizado com sucesso!");
       navigate("/");
     } catch (error) {
-      console.error("Erro ao cadastrar usuário", error);
+      if (error.response) {
+        console.log("Erro no cadastro:", error.response.data); // Verifica detalhes do erro
+      } else {
+        console.error("Erro ao cadastrar usuário", error);
+      }
       setGeneralError("Falha ao cadastrar usuário");
       alert("Falha ao cadastrar usuário!");
     }
@@ -74,12 +81,22 @@ function Cadastro() {
     const cep_usuario = e.target.value.replace(/\D/g, "");
     if (cep_usuario.length === 8) {
       try {
-      const response = await axios.get(`https://viacep.com.br/ws/${cep_usuario}/json/`); // Faz a requisição com Axios
-      const data = response.data; // Obtém os dados da resposta
-      setEndereco(`${data.logradouro}, ${data.bairro}, ${data.localidade} - ${data.uf}`);
+        const response = await axios.get(
+          `https://viacep.com.br/ws/${cep_usuario}/json/`
+        );
+        const data = response.data;
+        if (!data.erro) {
+          setEndereco(
+            `${data.logradouro}, ${data.bairro}, ${data.localidade} - ${data.uf}`
+          );
+        } else {
+          alert("CEP não encontrado!");
+        }
       } catch (error) {
         console.log("Erro ao carregar informações do endereço", error);
       }
+    } else {
+      alert("CEP inválido!");
     }
   }
 
