@@ -91,13 +91,14 @@ function Cadastro() {
           );
         } else {
           alert("CEP não encontrado!");
+        } 
       } catch (error) {
         console.log("Erro ao carregar informações do endereço", error);
       }
     } else {
       alert("CEP inválido!");
     }
-  }
+  }  
 
   return (
     <main className={styles.signupContainer}>
