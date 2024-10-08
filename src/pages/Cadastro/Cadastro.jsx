@@ -91,7 +91,6 @@ function Cadastro() {
           );
         } else {
           alert("CEP não encontrado!");
-        }
       } catch (error) {
         console.log("Erro ao carregar informações do endereço", error);
       }
