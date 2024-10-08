@@ -49,7 +49,7 @@ function Dashboard() {
                     {user ? (
                         <p>Que bom ter você aqui, {user?.nome_usuario || ''}! Vamos explorar novos destinos?</p>
                     ) : (
-                        <p>Bem-vindo(a) ao Check Green! Explore destinos sustentáveis ao redor do mundo.</p>
+                        <p>Bem-vindo(a) ao Check Green!</p>
                     )}
 
                         <div className={styles.cardsContainer}>
@@ -58,7 +58,7 @@ function Dashboard() {
                         </div>
 
                         <div className={styles.listContainer}>
-                            <h4>Descubra destinos sustentáveis prontos para serem explorados:</h4>
+                            <h4>Explore destinos sustentáveis ao redor do mundo:</h4>
                             <div className={styles.mainView}>
                             <LayoutGrid 
                             className={`${styles.icon} ${viewMode === 'cards' ? styles.active : ''}`}

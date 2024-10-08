@@ -55,7 +55,7 @@ function Cadastro() {
   const navigate = useNavigate();
 
   async function onSubmit(data) {
-    console.log(data); // Verifica os dados antes de enviar
+    console.log(data); 
     try {
       await axios.post("http://localhost:3000/usuarios", data, {
         headers: {
@@ -68,7 +68,7 @@ function Cadastro() {
       navigate("/");
     } catch (error) {
       if (error.response) {
-        console.log("Erro no cadastro:", error.response.data); // Verifica detalhes do erro
+        console.log("Erro no cadastro:", error.response.data);
       } else {
         console.error("Erro ao cadastrar usuário", error);
       }
@@ -229,7 +229,7 @@ function Cadastro() {
         </form>
 
         <p>
-          Já tem uma conta?{" "}
+          Já tem passagem?{" "}
           <Link className={styles.link} to="/login">
             Embarque!
           </Link>

@@ -111,7 +111,7 @@
 @media (min-width: 481px) and (max-width: 768px) {
     .cardView {
         width: calc(50% - 20px);
-        height: calc(25% - 20px);
+        height: calc(70% - 20px);
         margin-bottom: 20px;
     }
 
@@ -128,8 +128,8 @@
 /* Laptops & small screens (769px - 1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
     .cardView {
-        width: calc(32% - 20px);
-        height: calc(40% - 20px);
+        width: calc(30% - 20px);
+        height: calc(150% - 20px);
         margin-bottom: 20px;
     }
 
