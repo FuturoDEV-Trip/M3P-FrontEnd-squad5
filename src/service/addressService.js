@@ -25,7 +25,7 @@ async function getAddressFromCep(cep) {
         };
 
         return {
-            ...fullAddress,
+            ...address,
             ...coordinates
         }; 
     } catch (error) {
