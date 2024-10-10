@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import 'leaflet/dist/leaflet.css';
-import { PartyPopper, TableProperties, MapPinned, LayoutGrid, List } from 'lucide-react';
+import { PartyPopper, MapPinned, LayoutGrid, List } from 'lucide-react';
 import MapaPaginaDestinos from '../../components/Mapa/MapaPaginaDestinos';
 import ListaPaginaDestinos from '../../components/Lista/ListaPaginaDestinos';
 import Sidebar from '../../components/Sidebar/Sidebar';

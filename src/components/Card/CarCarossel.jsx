@@ -4,18 +4,8 @@ import imgIR from '../../../public/img/proxima.png';
 import imgVOLTAR from '../../../public//img/volte.png';
 import imgEDITAR from '../../../public//img/escrever.png';
 import imgEXCLUIR from '../../../public//img/excluir.png';
-/* import teste from '../../../public//img/teste.jpg'; */
 import ModalCardDestinos from './ModalCardDestinos';
 import axios from 'axios';
-
-/* const destinosIniciais = [
-  { id: 1, nome: 'Destino 1', imagem: teste, cidade: 'Cidade 1', categoria: 'Categoria 1' },
-  { id: 2, nome: 'Destino 2', imagem: 'https://via.placeholder.com/200x100?text=Destino+2', cidade: 'Cidade 2', categoria: 'Categoria 2' },
-  { id: 3, nome: 'Destino 3', imagem: 'https://via.placeholder.com/200x100?text=Destino+3', cidade: 'Cidade 3', categoria: 'Categoria 3' },
-  { id: 4, nome: 'Destino 4', imagem: 'https://via.placeholder.com/200x100?text=Destino+4', cidade: 'Cidade 4', categoria: 'Categoria 4' },
-  { id: 5, nome: 'Destino 5', imagem: 'https://via.placeholder.com/200x100?text=Destino+5', cidade: 'Cidade 5', categoria: 'Categoria 5' },
-  { id: 6, nome: 'Destino 6', imagem: 'https://via.placeholder.com/200x100?text=Destino+6', cidade: 'Cidade 6', categoria: 'Categoria 6' },
-]; */
 
 const CardCarrossel = () => {
   const [destinos, setDestinos] = useState([]);
@@ -58,9 +48,7 @@ const CardCarrossel = () => {
   };
 
   const editarDestino = (id) => {
-    
     const destinoParaEditar = destinos.find((destino) => destino.id === id);
-    editarDestino(id);
     alert(`Editar destino: ${destinoParaEditar.nome}`);
   };
 

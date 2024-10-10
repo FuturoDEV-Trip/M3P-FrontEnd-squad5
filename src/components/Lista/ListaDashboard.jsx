@@ -10,7 +10,7 @@ function ListaDashboard() {
 
     async function loadPlaces() {
         try {
-            const response = await axios.get('http://localhost:3000/');
+            const response = await axios.get('http://localhost:3000/destinos');
             setPlaces(response.data.destinos);
         } catch (error) {
             console.log('Falha ao carregar destinos', error);
