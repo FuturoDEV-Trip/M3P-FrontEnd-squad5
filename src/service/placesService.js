@@ -5,9 +5,9 @@ const token = localStorage.getItem("token")
 
 export const updatePlace = async (id, updatedData) => {
     try {
-        const response = await axios.put(`${API_URL}/${id}`, {
+        const response = await axios.put(`${API_URL}/${id}`, updatedData, {
             headers: {
-                'Authorization': `${token}`,
+                'Authorization': `Bearer ${token}`,
                 'Content-Type': 'application/json'
               }
         }, updatedData);
@@ -22,7 +22,7 @@ export const deletePlace = async (id) => {
     try {
         await axios.delete(`${API_URL}/${id}`, {
             headers: {
-                'Authorization': `${token}`,
+                'Authorization': `Bearer ${token}`,
                 'Content-Type': 'application/json'
               }});
         return 'Destino deletado com sucesso';
