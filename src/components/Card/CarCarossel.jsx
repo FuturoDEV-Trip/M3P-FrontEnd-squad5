@@ -1,36 +1,66 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './CardCarrossel.css';
 import imgIR from '../../../public/img/proxima.png';
 import imgVOLTAR from '../../../public//img/volte.png';
 import imgEDITAR from '../../../public//img/escrever.png';
 import imgEXCLUIR from '../../../public//img/excluir.png';
-import teste from '../../../public//img/teste.jpg';
+/* import teste from '../../../public//img/teste.jpg'; */
 import ModalCardDestinos from './ModalCardDestinos';
+import axios from 'axios';
 
-
-const destinosIniciais = [
+/* const destinosIniciais = [
   { id: 1, nome: 'Destino 1', imagem: teste, cidade: 'Cidade 1', categoria: 'Categoria 1' },
   { id: 2, nome: 'Destino 2', imagem: 'https://via.placeholder.com/200x100?text=Destino+2', cidade: 'Cidade 2', categoria: 'Categoria 2' },
   { id: 3, nome: 'Destino 3', imagem: 'https://via.placeholder.com/200x100?text=Destino+3', cidade: 'Cidade 3', categoria: 'Categoria 3' },
   { id: 4, nome: 'Destino 4', imagem: 'https://via.placeholder.com/200x100?text=Destino+4', cidade: 'Cidade 4', categoria: 'Categoria 4' },
   { id: 5, nome: 'Destino 5', imagem: 'https://via.placeholder.com/200x100?text=Destino+5', cidade: 'Cidade 5', categoria: 'Categoria 5' },
   { id: 6, nome: 'Destino 6', imagem: 'https://via.placeholder.com/200x100?text=Destino+6', cidade: 'Cidade 6', categoria: 'Categoria 6' },
-];
+]; */
 
 const CardCarrossel = () => {
-  const [destinos, setDestinos] = useState(destinosIniciais);
+  const [destinos, setDestinos] = useState([]);
   const [indiceAtual, setIndiceAtual] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
   const [destinoSelecionado, setDestinoSelecionado] = useState(null);
+  const token = localStorage.getItem("token")
+
+  useEffect(() => {
+    axios.get('http://localhost:3000/destinos', {
+      headers: {
+        'Authorization': `${token}`,
+        'Content-Type': 'application/json'
+      }})
+      .then((response) => {
+        setDestinos(response.data);
+      })
+      .catch((error) => {
+        console.error('Erro ao buscar destinos:', error)
+      });
+  }, [])
+
   const cardsPorPagina = 3;
 
-  const excluirDestino = (id) => {
-    const novosDestinos = destinos.filter((destino) => destino.id !== id);
-    setDestinos(novosDestinos);
+  const excluirDestino = async (id) => {
+    try {
+      await axios.delete(`http://localhost:3000/destinos/${id}`, {
+        headers: {
+          'Authorization': `${token}`,
+          'Content-Type': 'application/json'
+        }})
+        const novosDestinos = destinos.filter((destino) => destino.id !== id);
+        setDestinos(novosDestinos);
+        alert('Destino excluído com sucesso!');
+    } catch (error) {
+      console.error('Erro ao excluir destino', error);
+      alert('Falha ao excluir destino!');
+    }
+
   };
 
   const editarDestino = (id) => {
+    
     const destinoParaEditar = destinos.find((destino) => destino.id === id);
+    editarDestino(id);
     alert(`Editar destino: ${destinoParaEditar.nome}`);
   };
 
@@ -58,11 +88,11 @@ const CardCarrossel = () => {
       <div className="cards-container">
         {cardsVisiveis.map((destino) => (
           <div className="card" key={destino.id}>
-            <img src={destino.imagem} alt={destino.nome} />
+            <img src={destino.img_destino} alt={destino.nome_destino} />
             <div className="orgIMG">
               <ul>
-                <li>Nome: {destino.nome}</li>
-                <li>Cidade: {destino.cidade}</li>
+                <li>Nome: {destino.nome_destino}</li>
+                <li>Cidade: {destino.cidade_destino}</li>
               </ul>
             </div>
             <div className="botoes-acoes">
@@ -80,6 +110,7 @@ const CardCarrossel = () => {
       <div className="seta" onClick={proximo} style={{ opacity: inicio + cardsPorPagina >= destinos.length ? 0.5 : 1 }}>
         <img src={imgIR} alt="Próximo" />
       </div>
+      
       <ModalCardDestinos isOpen={modalOpen} onClose={() => setModalOpen(false)} destino={destinoSelecionado} />
     </div>
   );

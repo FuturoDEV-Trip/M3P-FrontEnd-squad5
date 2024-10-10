@@ -15,7 +15,7 @@ export const updatePlace = async (id, updatedData) => {
 export const deletePlace = async (id) => {
     try {
         await axios.delete(`${API_URL}/${id}`);
-        return 'Destino deltado com sucesso';
+        return 'Destino deletado com sucesso';
     } catch (error) {
         console.error('Erro ao deletar destino:', error);
         throw error;

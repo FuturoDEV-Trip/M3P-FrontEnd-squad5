@@ -49,7 +49,7 @@ function EditarDestino() {
         const cep = e.target.value.replace(/\D/g, '');
         if (cep.length === 8) {
           try {
-            const addressData = await getAddressFromCep(cep_destino);
+            const addressData = await getAddressFromCep(cep);
             console.log(addressData);
             setValue('address', addressData.logradouro);
             setValue('city', addressData.localidade);
@@ -225,6 +225,6 @@ function EditarDestino() {
             </main>
             </div>
     )
-};
+}
 
 export default EditarDestino;
