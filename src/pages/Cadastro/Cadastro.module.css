@@ -10,6 +10,22 @@
     padding: 0;
 }
 
+.iconContainer {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+  
+.homeIcon {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    color: #586fdf;
+}
+  
+.homeIcon:hover {
+    transform: scale(1.1);
+}
+
 .left {
     display: flex;
     flex-direction: column;

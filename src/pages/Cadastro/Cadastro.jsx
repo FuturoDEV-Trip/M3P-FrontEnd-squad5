@@ -5,6 +5,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import styles from "./Cadastro.module.css";
 import axios from "axios";
+import { House } from 'lucide-react';
 
 // Validation with Zod
 const schema = z.object({
@@ -55,16 +56,15 @@ function Cadastro() {
   const navigate = useNavigate();
 
   async function onSubmit(data) {
-    console.log(data); 
     try {
-      await axios.post("http://localhost:3000/usuarios", data, {
+      const response = await axios.post("http://localhost:3000/usuarios", data, {
         headers: {
           "Content-Type": "application/json",
         },
       });
-
-      setSuccessMessage("Embarque de usuário realizado com sucesso!");
-      alert("Embarque realizado com sucesso!");
+      console.log("Resposta do servidor:", response);
+      setSuccessMessage("Check-in realizado com sucesso!");
+      alert("Check-in realizado com sucesso!");
       navigate("/");
     } catch (error) {
       if (error.response) {
@@ -102,6 +102,11 @@ function Cadastro() {
 
   return (
     <main className={styles.signupContainer}>
+        <div className={styles.iconContainer}>
+          <Link to="/">
+            <House size={24} className={styles.homeIcon} />
+          </Link>
+        </div>
       <div className={styles.left}>
         <h2>Área de Embarque</h2>
 
