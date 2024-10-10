@@ -14,6 +14,7 @@ function Dashboard() {
     const [userCount, setUserCount] = useState(0);
     const [placeCount, setPlaceCount] = useState(0);
     const [viewMode, setViewMode] = useState('cards');
+    const [loggedIn, setLoggedIn] = useState(false);
     const { user } = useAuth();
 
     async function fetchUserCount() {
@@ -37,7 +38,10 @@ function Dashboard() {
     useEffect(() => {
         fetchUserCount();
         fetchPlaceCount();
-    }, []);
+        if (user) {
+            setLoggedIn(true); 
+        }
+    }, [user]);
 
     return (
             <div className={styles.dashboardContainer}>
@@ -45,9 +49,9 @@ function Dashboard() {
                 <Sidebar />
                 </div>
                 <main className={styles.mainContent}>
-                    <h1>Lounge</h1>
+                    <h1>{user ? 'Lounge': 'Estação'}</h1>
                     {user ? (
-                        <p>Que bom ter você aqui, {user?.nome_usuario || ''}! Vamos explorar novos destinos?</p>
+                            <p className={styles.welcomeMessage}>Que bom ter você aqui, {user?.nome_usuario || ''}! Vamos explorar novos destinos?</p>
                     ) : (
                         <p>Bem-vindo(a) ao Check Green!</p>
                     )}
@@ -58,7 +62,11 @@ function Dashboard() {
                         </div>
 
                         <div className={styles.listContainer}>
-                            <h4>Explore destinos sustentáveis ao redor do mundo:</h4>
+                    {user ? (
+                            <p>Aqui, cada destino conta uma história verde — seja para relaxar em um paraíso eco-friendly ou descobrir novas culturas de forma consciente. Faça parte de uma comunidade de viajantes que transformam suas jornadas em experiências inesquecíveis, com o planeta no coração. Vamos fazer as malas e desbravar o mundo de um jeito mais verde?</p>
+                    ) : (
+                            <p className={styles.explorationMessage}>Última chamada para o embarque! Faça o check-in e descubra destinos inspiradores que vão fazer você querer arrumar as malas para a próxima viagem.</p>
+                        )}
                             <div className={styles.mainView}>
                             <LayoutGrid 
                             className={`${styles.icon} ${viewMode === 'cards' ? styles.active : ''}`}

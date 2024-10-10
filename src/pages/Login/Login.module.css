@@ -7,18 +7,22 @@
     justify-content: center;
     align-items: center;
 }
+
+.iconContainer {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
   
-/* .left {
-    flex: 1;
-    background: url('./src/assets/login-page-check-green.jpeg') no-repeat center center;
-    background-size: cover;
-    color: #cbcae0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 50px;
-} */
+.homeIcon {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    color: #b65987;
+}
+  
+.homeIcon:hover {
+    transform: scale(1.1);
+}
 
 .left {
     flex: 1;

@@ -22,20 +22,20 @@ function Sidebar() {
                         {user ? (
                             <>
                                 <li><Link to="/" 
-                            className={`${styles.link} ${isActive('/') ? styles.activeLink : ''}`}><Armchair /><span>Lounge</span></Link></li>
+                            className={`${styles.link} ${isActive('/') ? styles.activeLink : ''}`} data-replace="Lounge"><Armchair /><span>Lounge</span></Link></li>
                                 <li><Link to="/usuarios" 
-                            className={`${styles.link} ${isActive('/usuarios') ? styles.activeLink : ''}`}><User /><span>Guias</span></Link></li>
+                            className={`${styles.link} ${isActive('/usuarios') ? styles.activeLink : ''}`} data-replace="Guias"><User /><span>Guias</span></Link></li>
                                 <li><Link to="/destinos" 
-                            className={`${styles.link} ${isActive('/destinos') ? styles.activeLink : ''}`}><LandPlot /><span>Destinos</span></Link></li>
+                            className={`${styles.link} ${isActive('/destinos') ? styles.activeLink : ''}`} data-replace="Destinos"><LandPlot /><span>Destinos</span></Link></li>
                             </>
                         ) : (
                             <>
                                  <li><Link to="/" 
-                            className={`${styles.link} ${isActive('/') ? styles.activeLink : ''}`}><House /><span>Lounge</span></Link></li>
+                            className={`${styles.link} ${isActive('/') ? styles.activeLink : ''}`} data-replace="Estação"><House /><span>Estação</span></Link></li>
                                 <li><Link to="/login" 
-                                    className={`${styles.link} ${isActive('/login') ? styles.activeLink : ''}`}><Plane /><span>Embarque</span></Link></li>
+                                    className={`${styles.link} ${isActive('/login') ? styles.activeLink : ''}`} data-replace="Embarque"><Plane /><span>Embarque</span></Link></li>
                                 <li><Link to="/cadastro" 
-                                    className={`${styles.link} ${isActive('/cadastro') ? styles.activeLink : ''}`}><TicketsPlane /><span>Check-in</span></Link></li>
+                                    className={`${styles.link} ${isActive('/cadastro') ? styles.activeLink : ''}`} data-replace="Check-in"><TicketsPlane /><span>Check-in</span></Link></li>
                             </>
                         )}
                     </ul>
@@ -44,7 +44,7 @@ function Sidebar() {
                     <ul>
                         {user && (
                             <li>
-                                <button onClick={handleLogout} className={styles.link}>
+                                <button onClick={handleLogout} className={styles.linkOut}>
                                 <LogOut /><span>Desembarque</span>
                                 </button>
                             </li>
