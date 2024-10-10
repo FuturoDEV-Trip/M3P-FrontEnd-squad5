@@ -11,11 +11,11 @@ const ModalCardDestinos = ({ isOpen, onClose, destino }) => {
         <h2 className='nomeMODAL'>{destino.nome}</h2>
         <p><strong>Categoria:</strong> {destino.categoria_destino}</p>
         <p><strong>CEP:</strong> {destino.cep_destino}</p>
-        <p><strong>Número:</strong> {destino.numero_destino}</p>
-        <p><strong>Localidade:</strong> {destino.localidade_destino}</p>
         <p><strong>Cidade:</strong> {destino.cidade_destino}</p>
-        <p><strong>Latitude:</strong> {destino.latitude}</p>
-        <p><strong>Longitude:</strong> {destino.longitude}</p>
+        <p><strong>Localidade:</strong> {destino.localidade_destino}</p>
+        {/* <p><strong>Número:</strong> {destino.id}</p> */}
+        <p><strong>Latitude:</strong> {destino.latitude_destino}</p>
+        <p><strong>Longitude:</strong> {destino.longitude_destino}</p>
         <p><strong>Complemento:</strong> {destino.complemento_destino}</p>
         <p><strong>Descrição:</strong> {destino.descricao_destino}</p>
       </div>
