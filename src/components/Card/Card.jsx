@@ -1,9 +1,12 @@
-import React from 'react';
+import { useAuth } from '../../contexts/Auth';
 import styles from './Card.module.css'; 
 
 function Card({ title, total, iconElement: Icon }) {
+    const { user } = useAuth();
+    const isLoggedIn = !!user;
+
     return (
-        <div className={styles.card}>
+        <div className={`${styles.card} ${isLoggedIn ? styles.animated : ''}`}>
             <div className={styles.title}>
                 <h3>{title}</h3>
             </div>

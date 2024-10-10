@@ -1,7 +1,6 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { set } from 'react-hook-form';
 
 const AuthContext = createContext();
 
@@ -25,14 +24,14 @@ export function AuthProvider({ children }) {
 
             const loginResponse = await axios.post('http://localhost:3000/login', { email_usuario, senha_usuario });
             const loginData = loginResponse.data;
-            // debugger
+
             if (loginData && loginData.Token && loginData.usuario) {
                 localStorage.setItem('user', JSON.stringify(loginData.usuario));
                 localStorage.setItem('token', loginData.Token);
 
                 setUser(loginData.usuario);
                 setToken(loginData.Token);
-
+                alert("Embarque autorizado com sucesso!");
                 navigate('/');
             } else {
                 alert('Falha na autenticação');
@@ -43,12 +42,27 @@ export function AuthProvider({ children }) {
         }
     }
 
-    function signOut() {
+    async function signOut() {
+        try {
+            console.log(token)
+            await axios.post('http://localhost:3000/logout', {}, {
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+            }
+        });
+
         localStorage.removeItem('user');
         localStorage.removeItem('token');
+
         setUser(null);
         setToken(null);
+        alert('Desembarque realizado com sucesso!');
         navigate('/');
+        } catch (error) {
+            console.error('Erro ao deslogar:', error);
+            alert('Erro ao deslogar');
+        }
     }
 
     return (
