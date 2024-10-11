@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
-import axios from 'axios';
+import { fetchPlaces, fetchUsers } from '../../service/dashboardService';
 import styles from './MapaDashboard.module.css';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
@@ -18,7 +18,7 @@ const createCustomIcon = () => {
   });
 };
 
-function MapMarkers({ places }) {
+function MapMarkers({ places, users }) {
   const map = useMap();
   const customIcon = createCustomIcon();
 
@@ -31,37 +31,43 @@ function MapMarkers({ places }) {
 
   return (
     <>
-      {places.map((place) => (
-        <Marker
-          key={place.id}
-          position={[place.latitude_destino, place.longitude_destino]}
-          icon={customIcon}
-        >
-          <Popup>
-            <strong>{place.nome_destino}</strong>
-            <p>{place.descricao_destino}</p>
-            <small>Cadastrado por: {place.guideName}</small>
-          </Popup>
-        </Marker>
-      ))}
+      {places.map((place) => {
+        const user = users.find((u) => u.id === place.userId);
+        return (
+          <Marker
+            key={place.id}
+            position={[place.latitude_destino, place.longitude_destino]}
+            icon={customIcon}
+          >
+            <Popup>
+              <strong>{place.nome_destino}</strong>
+              <p>{place.descricao_destino}</p>
+              <small>Cadastrado por: {user?.nome || 'Admin'}</small>
+            </Popup>
+          </Marker>
+        );
+      })}
     </>
   );
 };
 
 function MapaDashboard({ center = [-27.593500, -48.558540], zoom = 13 }) {
   const [places, setPlaces] = useState([]);
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    const fetchPlaces = async () => {
+    const loadData = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/destinos-publicos');
-        setPlaces(response.data);
+        const placesData = await fetchPlaces();
+        const usersData = await fetchUsers();
+        setPlaces(placesData);
+        setUsers(usersData);
       } catch (error) {
-        console.error('Falha ao carregar informações do destino:', error); 
+        console.error('Erro ao carregar dados:', error);
       }
     };
 
-    fetchPlaces();
+    loadData();
   }, []);
 
   return (
@@ -75,7 +81,7 @@ function MapaDashboard({ center = [-27.593500, -48.558540], zoom = 13 }) {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <MapMarkers places={places} />
+        <MapMarkers places={places} users={users} />
       </MapContainer>
     ) : (
       <p>Carregando destinos...</p> 
