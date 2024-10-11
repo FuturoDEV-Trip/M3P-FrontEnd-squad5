@@ -35,7 +35,7 @@ function EditarDestino() {
     async function retrievePlace() {
         try {
             const response = await fetch(`http://localhost:3000/destinos/${id}`, {headers: {
-                'Authorization': `${token}`,
+                'Authorization': `Bearer ${token}`,
                 'Content-Type': 'application/json'
               }});
             if (!response.ok) throw new Error('Falha ao carregar informações do destino');
@@ -54,7 +54,7 @@ function EditarDestino() {
                 console.log(addressData);
                 setValue('localidade_destino', addressData.logradouro);
                 setValue('cidade_destino', addressData.localidade);
-                setValue('complemento', addressData.complemento);
+                setValue('complemento_destino', addressData.complemento);
                 setValue('latitude', addressData.latitude);
                 setValue('longitude', addressData.longitude);
                 setAddress(addressData.logradouro);
@@ -210,7 +210,7 @@ function EditarDestino() {
                             id="complement"
                             className={styles.placesInput}
                             placeholder='Informações adicionais sobre o destino...'
-                            {...register("complemento")}
+                            {...register("complemento_destino")}
                         />
                         <p className={styles.error}>{errors.complemento?.message}</p>
                     </div>
