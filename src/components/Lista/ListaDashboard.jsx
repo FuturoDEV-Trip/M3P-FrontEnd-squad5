@@ -10,8 +10,8 @@ function ListaDashboard() {
 
     async function loadPlaces() {
         try {
-            const response = await axios.get('http://localhost:3000/destinos');
-            setPlaces(response.data.destinos);
+            const response = await axios.get('http://localhost:3000/destinos-publicos');
+            setPlaces(response.data);
         } catch (error) {
             console.log('Falha ao carregar destinos', error);
         }
@@ -32,10 +32,6 @@ function ListaDashboard() {
     }, []);
 
     const placeData = places.map(place => {
-        if (user && user.id === place.id_usuario) {
-            return { ...place, guideName: user.nome_usuario };
-        }
-
         const guide = users.find(u => u.id === place.id_usuario);
         return {
             ...place,
@@ -49,6 +45,7 @@ function ListaDashboard() {
                 <thead>
                     <tr>
                         <th>Destino</th>
+                        <th>Descrição</th>
                         <th>Guia</th>
                     </tr>
                 </thead>
@@ -57,6 +54,7 @@ function ListaDashboard() {
                 {placeData.map(place => (
                             <tr key={place.id}>
                                 <td>{place.nome_destino}</td>
+                                <td>{place.descricao_destino}</td>
                                 <td>{place.guideName}</td>
                         </tr>
                 ))}
