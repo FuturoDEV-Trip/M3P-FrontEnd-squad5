@@ -23,26 +23,32 @@ function MapMarkers({ places, users }) {
   const customIcon = createCustomIcon();
 
   useEffect(() => {
+    const defaultZoom = 13;
+  
     if (places.length > 0) {
       const firstPlace = places[0];
-      map.flyTo([firstPlace.latitude_destino, firstPlace.longitude_destino], 13, { animate: true });
+      map.flyTo([firstPlace.latitude_destino, firstPlace.longitude_destino], defaultZoom, { animate: true });
+    } else {
+      map.setView([-27.593500, -48.558540], defaultZoom);
     }
   }, [places, map]);
-
+  
   return (
     <>
       {places.map((place) => {
-        const user = users.find((u) => u.id === place.userId);
+        const user = users.find((u) => u.id === place.id_usuario);
         return (
-          <Marker
+          <Marker 
             key={place.id}
             position={[place.latitude_destino, place.longitude_destino]}
             icon={customIcon}
           >
             <Popup>
-              <strong>{place.nome_destino}</strong>
-              <p>{place.descricao_destino}</p>
-              <small>Cadastrado por: {user?.nome || 'Admin'}</small>
+            <div className={styles.popupContainer}>
+              <strong className={styles.placeName}>{place.nome_destino}</strong>
+              <p className={styles.placeDescription}>{place.descricao_destino}</p>
+              <small className={styles.placeUser}>Guia: {user?.nome_usuario || 'Admin'}</small>
+            </div>
             </Popup>
           </Marker>
         );

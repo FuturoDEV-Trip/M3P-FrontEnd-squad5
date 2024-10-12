@@ -9,6 +9,23 @@
     border-radius: 5px;
 }
 
+.placeName {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #b65987; 
+}
+  
+.placeDescription {
+    font-size: 1em;
+    color: #586fdf; 
+    margin: 4px 0; 
+}
+  
+.placeUser {
+    font-size: 0.9em;
+    color: #cbcae0;
+}
+
 /* Media query for small screens */
 @media (max-width: 480px) {
     .mapContainer {
