@@ -12,6 +12,7 @@ function AdicionarDestinos() {
   const { user } = useAuth();
   const [successMessage, setSuccessMessage] = useState("");
   const [address, setAddress] = useState("");
+  const [image, setImage] = useState(null);
   const {
     register,
     handleSubmit,
@@ -26,9 +27,18 @@ function AdicionarDestinos() {
 
   async function onSubmit(data) {
     const token = localStorage.getItem("token");
+    formData.append("imagem", image);
 
     try {
+      const uploadResponse = await axios.post("http://localhost:3000/upload", formData, {
+        headers: {
+          Authorization: `${token}`,
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      
       console.log(data)
+
       await axios.post(
         "http://localhost:3000/destinos",
         { ...data, id_usuario: user.id },
@@ -39,7 +49,7 @@ function AdicionarDestinos() {
           },
         }
       );
-      
+
       setSuccessMessage("Destino cadastrado com sucesso!");
       alert("Destino cadastrado com sucesso!");
       setTimeout(() => {
@@ -73,6 +83,10 @@ function AdicionarDestinos() {
 
   const handleCustomCategoryChange = (e) => {
     setCustomCategory(e.target.value);
+  };
+
+  const handleImageChange = (e) => {
+    setImage(e.target.files[0]);
   };
 
   return (
@@ -225,6 +239,19 @@ function AdicionarDestinos() {
               placeholder="Informações adicionais sobre o destino..."
               {...register("complemento_destino")}
             />
+
+            <div className={styles.placesGroup}>
+              <label htmlFor="image">Imagem:</label>
+              <input
+                type="file"
+                id="image"
+                className={styles.placesInput}
+                accept="image/*"
+                onChange={handleImageChange}
+              />
+
+            </div>
+
             <p className={styles.error}>
               {errors.complemento_destino?.message}
             </p>
