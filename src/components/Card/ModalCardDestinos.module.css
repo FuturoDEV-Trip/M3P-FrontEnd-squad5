@@ -11,8 +11,8 @@
   z-index: 1000;
 }
 
-.modal-content {
-  background: white;
+.modalContent {
+  background: cbcae0;
   padding: 20px;
   border-radius: 5px;
   width: 40vw;
@@ -24,7 +24,7 @@
   align-items: center;
 }
 
-.modal-content p {
+.modalContent p {
   color:black;
   background-color: #586fdf;
   display: flex;
@@ -39,7 +39,7 @@
   font-size: 20px;
 }
 
-.nomeMODAL {
+.nomeModal {
   font-size: 50px;
   margin-bottom: 30px;
 }
