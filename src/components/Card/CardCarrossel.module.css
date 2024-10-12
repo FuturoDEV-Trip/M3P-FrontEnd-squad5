@@ -167,3 +167,67 @@
 .btnExcluir:hover {
   opacity: 0.8;
 }
+
+/* Media queries for mobile devices */
+@media (max-width: 480px) {
+  .cardsContainer {
+    width: 90vw; 
+    height: auto; 
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 60vw; 
+    height: auto;
+    margin: 10px 0; 
+  }
+
+  .cardImage {
+    max-width: 100%; 
+    height: auto; 
+  }
+}
+
+/* Media queries for tablets & mobile devices */
+@media (min-width: 481px) and (max-width: 768px) {
+  .cardsContainer {
+    width: 80vw;
+    height: auto; 
+    flex-direction: row; 
+    align-items: flex-start;
+    overflow-x: auto; 
+    margin-left: 40px;
+  }
+
+  .card {
+    width: 40vw; 
+    height: auto; 
+    margin: 10px; 
+  }
+
+  .cardImage {
+    max-width: 100%; 
+    height: auto; 
+  }
+}
+
+/* Media queries for small screens & laptops */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .cardsContainer {
+    width: 80vw; 
+    height: 50vh; 
+    justify-content: center;
+  }
+
+  .card {
+    width: 30vw; 
+    height: 340px; 
+    margin: 10px; 
+  }
+
+  .cardImage {
+    max-width: 100%; 
+    height: auto; 
+  }
+}

@@ -128,3 +128,65 @@ details p {
   font-size: 0.95rem;
 }
 
+/* Media queries for mobile devices */
+@media (max-width: 480px) {
+  .modalContent {
+    width: 90vw; 
+    padding: 16px;
+  }
+
+  .modalContent h2 {
+    font-size: 2rem; 
+  }
+
+  .modalContent p {
+    font-size: 0.9rem; 
+  }
+
+  .mapContainer {
+    width: 100%; 
+    height: auto; 
+  }
+}
+
+/* Media queries for tablets & mobile devices */
+@media (min-width: 481px) and (max-width: 768px) {
+  .modalContent {
+    width: 80vw; 
+    padding: 20px; 
+  }
+
+  .modalContent h2 {
+    font-size: 2.2rem;
+  }
+
+  .modalContent p {
+    font-size: 1rem; 
+  }
+
+  .mapContainer {
+    width: 100%; 
+    height: 60vh; 
+  }
+}
+
+/* Media queries for small screens & laptops */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .modalContent {
+    width: 60vw; 
+  }
+
+  .modalContent h2 {
+    font-size: 2.5rem; 
+  }
+
+  .modalContent p {
+    font-size: 1rem; 
+  }
+
+  .mapContainer {
+    width: 50vw; 
+    height: 60vh; 
+  }
+}
+
