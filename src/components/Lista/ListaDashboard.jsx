@@ -1,41 +1,27 @@
 import { useEffect, useState } from "react";
-import axios from 'axios';
 import styles from './ListaDashboard.module.css'; 
-import { useAuth } from "../../contexts/Auth";
+import { fetchPlaces, fetchUsers } from '../../service/dashboardService';
 
 function ListaDashboard() {
     const [places, setPlaces] = useState([]);
     const [users, setUsers] = useState([]);
-    const { user } = useAuth();
-
-    async function loadPlaces() {
-        try {
-            const response = await axios.get('http://localhost:3000/destinos');
-            setPlaces(response.data.destinos);
-        } catch (error) {
-            console.log('Falha ao carregar destinos', error);
-        }
-    }
-
-    async function loadUsers() {
-        try {
-            const response = await axios.get('http://localhost:3000/usuarios');
-            setUsers(response.data);
-        } catch (error) {
-            console.log('Falha ao carregar usuários', error);
-        }
-    }
 
     useEffect(() => {
-        loadPlaces();
-        loadUsers();
+        const loadData = async () => {
+            try {
+                const placesData = await fetchPlaces();
+                const usersData = await fetchUsers();
+                setPlaces(placesData);
+                setUsers(usersData);
+            } catch (error) {
+                console.error('Erro ao carregar dados:', error);
+            }
+        };
+
+        loadData();
     }, []);
 
     const placeData = places.map(place => {
-        if (user && user.id === place.id_usuario) {
-            return { ...place, guideName: user.nome_usuario };
-        }
-
         const guide = users.find(u => u.id === place.id_usuario);
         return {
             ...place,
@@ -49,6 +35,7 @@ function ListaDashboard() {
                 <thead>
                     <tr>
                         <th>Destino</th>
+                        <th>Descrição</th>
                         <th>Guia</th>
                     </tr>
                 </thead>
@@ -57,6 +44,7 @@ function ListaDashboard() {
                 {placeData.map(place => (
                             <tr key={place.id}>
                                 <td>{place.nome_destino}</td>
+                                <td>{place.descricao_destino}</td>
                                 <td>{place.guideName}</td>
                         </tr>
                 ))}

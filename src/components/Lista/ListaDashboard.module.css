@@ -1,6 +1,7 @@
 .tableContainer {
     display: flex;
     margin-top: 20px;
+    margin-bottom: 30px;
     border-radius: 5px;
     width: 90%;
 }
@@ -11,7 +12,7 @@ table {
 }
 
 th, td {
-    padding: 10px;
+    padding: 15px;
     text-align: left;
     border: 1px solid #586fdf;
 }
@@ -28,11 +29,19 @@ td {
 
 th:nth-child(2),
 td:nth-child(2) {
-    text-align: center;
+    text-align: left;
 }
 
 th:nth-child(1) {
     border-right-color: #cbcae0;
+}
+
+tr {
+    transition: filter 0.3s ease-in-out;
+}
+
+tr:hover {
+    filter: brightness(1.2);
 }
 
 /* Mobile devices with screen smaller than 480px */

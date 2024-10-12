@@ -25,6 +25,10 @@ td {
     color: #b65987;
 }
 
+td:nth-child(2) {
+    text-align: center;
+}
+
 th:nth-child(2),
 th:nth-child(3),
 td:nth-child(3),
@@ -38,10 +42,23 @@ th:nth-child(3) {
     border-right-color: #cbcae0;
 }
 
-td:nth-child(4) {
+.iconContainer {
     display: flex;
-    gap: 8px;
+    gap: 10px;
     justify-content: center;
+}
+
+.iconEdit,
+.iconDelete {
+    border: 2px dotted #b65987;
+    border-radius: 5px;
+    padding: 5px 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.iconEdit:hover,
+.iconDelete:hover {
+    transform: scale(1.1);
 }
 
 .button {
