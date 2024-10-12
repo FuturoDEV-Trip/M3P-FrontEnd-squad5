@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import Sidebar from '../../components/Sidebar/Sidebar';
-import { SmilePlus } from 'lucide-react';
+import { Pencil, SmilePlus, Trash2 } from 'lucide-react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import styles from './Usuarios.module.css';
@@ -42,7 +42,7 @@ function Usuarios() {
         setUsuarios(usuarios.filter(usuario => usuario.id !== id));
         alert('Usuário excluído com sucesso!');
       } catch (error) {
-        if(error.response && error.response.data.error) {
+        if (error.response && error.response.data.error) {
           alert(error.response.data.error);
         } else {
           alert('Erro ao excluir usuário');
@@ -55,15 +55,16 @@ function Usuarios() {
   return (
 
     <div className={styles.container}>
-      <Sidebar />
+      <div className={styles.sidebar}>
+        <Sidebar />
+      </div>
 
       <main className={styles.usersContainer}>
         <h1>Guias</h1>
-        <p>Lista de usuários cadastrados <SmilePlus /></p>
 
         {usuarios.length > 0 ? (
-          <table className={styles.table}>
-            <thead>
+          <table className={styles.tableContainer}>
+            <thead border="1">
               <tr>
                 <th>Nome</th>
                 <th>Email</th>
@@ -76,8 +77,12 @@ function Usuarios() {
                   <td>{usuario.nome_usuario}</td>
                   <td>{usuario.email_usuario}</td>
                   <td>
-                    <button onClick={() => handleEdit(usuario.id)}>Editar</button>
-                    <button onClick={() => handleDelete(usuario.id)}>Excluir</button>
+                    <button onClick={() => handleEdit(usuario.id)} className={styles.button}>
+                      <Pencil className={styles.icon} />
+                    </button>
+                    <button onClick={() => handleDelete(usuario.id)} className={styles.button}>
+                      <Trash2 className={styles.icon} />
+                    </button>
                   </td>
                 </tr>
               ))}
@@ -87,9 +92,13 @@ function Usuarios() {
           <p>Nenhum usuário cadastrado.</p>
         )}
 
+        <footer className={styles.footer}>
+          <p>Lista de usuários cadastrados <SmilePlus /></p>
+        </footer>
       </main>
     </div>
   );
+
 }
 
 export default Usuarios;
