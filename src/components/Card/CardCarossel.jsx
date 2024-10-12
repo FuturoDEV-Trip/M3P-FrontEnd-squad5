@@ -82,7 +82,8 @@ const CardCarrossel = () => {
       <div className={styles.carrossel}>
         {destinos.length === 0 ? (
           <div className={styles.mensagemVazia}>
-            <p>Não há destinos cadastrados no momento.</p>
+            <div className={styles.oscilacao}></div>
+            <p>Seu mapa de viagem começa aqui. Que tal compartilhar suas melhores rotas?</p>
           </div>
         ) : (
           <>
