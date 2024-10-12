@@ -8,7 +8,7 @@
   text-align: center;
   padding: 20px;
   font-size: 1.2em;
-  color: #586fdf; 
+  color: #586fdf;
 }
 
 
@@ -27,7 +27,7 @@
 .card {
   position: relative;
   width: 500px;
-  height: 340px;
+  height: 440px;
   padding: 20px;
   margin: 10px;
   text-align: center;
@@ -54,6 +54,12 @@
   background-color: #b65987;
 }
 
+.cardImage img {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
+
 /* .card img {
   max-width: 100%;
   max-height: 180px;
@@ -63,8 +69,8 @@
 
 .cardPlaceholder {
   background-color: transparent;
-  width: 70vh; 
-  height: 50vh; 
+  width: 70vh;
+  height: 50vh;
 }
 
 .seta {
@@ -171,21 +177,21 @@
 /* Media queries for mobile devices */
 @media (max-width: 480px) {
   .cardsContainer {
-    width: 90vw; 
-    height: auto; 
+    width: 90vw;
+    height: auto;
     flex-direction: column;
     align-items: center;
   }
 
   .card {
-    width: 60vw; 
+    width: 60vw;
     height: auto;
-    margin: 10px 0; 
+    margin: 10px 0;
   }
 
   .cardImage {
-    max-width: 100%; 
-    height: auto; 
+    max-width: 100%;
+    height: auto;
   }
 }
 
@@ -193,41 +199,50 @@
 @media (min-width: 481px) and (max-width: 768px) {
   .cardsContainer {
     width: 80vw;
-    height: auto; 
-    flex-direction: row; 
+    height: 440px;
+    flex-direction: row;
     align-items: flex-start;
-    overflow-x: auto; 
+    overflow-x: auto;
     margin-left: 40px;
   }
 
   .card {
-    width: 40vw; 
-    height: auto; 
-    margin: 10px; 
+    width: 40vw;
+    height: auto;
+    margin: 10px;
   }
 
   .cardImage {
-    max-width: 100%; 
-    height: auto; 
+    max-width: 100%;
+    height: auto;
+  }
+  .botoesAcoes{
+    display: flex;
+    flex-direction: column;
   }
 }
 
 /* Media queries for small screens & laptops */
 @media (min-width: 769px) and (max-width: 1024px) {
   .cardsContainer {
-    width: 80vw; 
-    height: 50vh; 
+    width: 80vw;
+    height: 50vh;
     justify-content: center;
   }
 
   .card {
-    width: 30vw; 
-    height: 340px; 
-    margin: 10px; 
+    width: 30vw;
+    height: 440px;
+    margin: 10px;
   }
 
   .cardImage {
-    max-width: 100%; 
-    height: auto; 
+    max-width: 100%;
+    height: auto;
+  }
+
+  .botoesAcoes{
+    display: flex;
+    flex-direction: column;
   }
 }
