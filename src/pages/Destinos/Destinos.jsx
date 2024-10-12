@@ -7,7 +7,7 @@ import ListaPaginaDestinos from '../../components/Lista/ListaPaginaDestinos';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import BotaoVoltar from '../../components/Botao/BotaoVoltar';
 import styles from './Destinos.module.css';
-import CardCarrossel from '../../components/Card/CarCarossel';
+import CardCarrossel from '../../components/Card/CardCarossel';
 
 function Destinos() {
     const [viewMode, setViewMode] = useState('carrossel');

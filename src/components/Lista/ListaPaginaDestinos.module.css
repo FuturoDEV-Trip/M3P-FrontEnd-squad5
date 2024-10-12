@@ -25,9 +25,9 @@ td {
     color: #b65987;
 }
 
-td:nth-child(2) {
+/* td:nth-child(2) {
     text-align: center;
-}
+} */
 
 th:nth-child(2),
 th:nth-child(3),
