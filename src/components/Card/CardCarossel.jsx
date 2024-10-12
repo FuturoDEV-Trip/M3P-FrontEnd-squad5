@@ -97,7 +97,7 @@ const CardCarrossel = () => {
               {cardsVisiveis.map((destino) => (
                 <div className={styles.card} key={destino.id}>
                   <div className={styles.cardImage}>
-                    <img src={destino.img_destino} alt={destino.nome_destino} />
+                    <img src='https://picsum.photos/200' alt={destino.nome_destino} />
                   </div>
                   <div className={styles.orgImg}>
                     <ul>
