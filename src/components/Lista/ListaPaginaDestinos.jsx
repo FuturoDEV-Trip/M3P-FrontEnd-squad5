@@ -77,14 +77,20 @@ function ListaPaginaDestinos() {
                             <td>{place.categoria_destino}</td> 
                             <td>{user ? user.nome_usuario : 'Admin'}</td>
                             <td>
+                                <div className={styles.iconContainer}>
+                                <div className={styles.iconEdit}>    
                                 <Link to={`/editar-destino/${place.id}`}>
                                     <button className={styles.button}>
                                         <Pencil className={styles.icon} />
                                     </button>
                                 </Link>
+                                </div>
+                                <div className={styles.iconDelete}>
                                 <button className={styles.button} onClick={() => handleDelete(place.id)}>
                                     <Trash2 className={styles.icon} />
                                 </button>
+                                </div>
+                                </div>
                             </td>
                         </tr>
                         );

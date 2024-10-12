@@ -10,7 +10,7 @@ import styles from './Destinos.module.css';
 import CardCarrossel from '../../components/Card/CarCarossel';
 
 function Destinos() {
-    const [viewMode, setViewMode] = useState('list');
+    const [viewMode, setViewMode] = useState('carrossel');
     return (
     
         <div className={styles.placesContainer}>
@@ -40,6 +40,7 @@ function Destinos() {
                             className={`${styles.icon} ${viewMode === 'map' ? styles.active : ''}`}
                             onClick={() => setViewMode('map')}
                             />
+                            <BotaoVoltar />
                             </div>
                         <div className={styles.alternateView}>
                             {viewMode === 'carrossel' ? <CardCarrossel /> : viewMode === 'list' ? <ListaPaginaDestinos /> : <MapaPaginaDestinos />}
