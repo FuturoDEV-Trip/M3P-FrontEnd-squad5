@@ -1,7 +1,6 @@
 .cardsContainer {
     display: flex;
     flex-wrap: wrap;    
-    /* justify-content: space-around; */
     gap: 40px;
     margin: 40px auto;
 }
@@ -12,7 +11,7 @@
     height: 440px;
     overflow: hidden;
     border-radius: 10px;
-    background-color: #cbcae0;
+    background-color: #F5F5F5;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.4s ease;
 }
@@ -39,7 +38,7 @@
     left: 0;
     right: 0;
     padding: 30px;
-    background: linear-gradient(to bottom, rgba(203, 202, 224, 0.5), #cbcae0);
+    background: linear-gradient(to bottom, rgba(203, 202, 224, 0.5), #F5F5F5);
     transform: translateY(100%);
     transition: transform 0.5s ease;
 }
@@ -51,7 +50,7 @@
 .cardContent h3 {
     margin: 10px 0;
     font-size: 1.2rem;
-    color: #b65987;
+    color: #088284;
 }
 
 .cardContent p {
@@ -82,7 +81,7 @@
     border-radius: 5px; 
     font-size: 0.9rem;
     color: #586fdf;
-    border: 2px dotted #b65987;
+    border: 2px dotted #088284;
 }
 
 .category:hover, .city:hover {
@@ -91,7 +90,7 @@
 
 .user {
     font-size: 0.6rem;
-    color: #b65987; 
+    color: #088284; 
     margin-top: 5px;
 }
   
@@ -99,7 +98,7 @@
     margin-top: 40px;
     padding: 10px;
     background-color: #586fdf;
-    color: #cbcae0;
+    color: #F5F5F5;
     font-size: 1rem;
     border: none;
     cursor: pointer;
@@ -109,7 +108,7 @@
 }
   
 .exploreButton:hover {
-    background-color: #3f54b7;
+    background-color: #586fdf;
 }
   
 .exploreButton:focus {

@@ -113,7 +113,7 @@ function EditarUsuario() {
             </div>
 
             <div className={styles.userGroup}>
-              <label>Email</label>
+              <label>E-mail</label>
               <input
                 type="email"
                 value={formData.email_usuario}

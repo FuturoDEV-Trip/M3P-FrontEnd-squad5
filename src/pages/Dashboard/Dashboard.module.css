@@ -11,7 +11,7 @@
 }
 
 .welcomeMessage {
-    color: #007bff;
+    color: #586fdf;
     font-size: 1rem;
     font-weight: bold;
     animation: slideDown 0.5s ease forwards;
@@ -46,7 +46,7 @@
 
 .mainContent h1 {
     font-size: 3rem;
-    margin-top: 30px;
+    margin-top: 20px;
     color: #586fdf;
     text-align: left;
 }
@@ -77,7 +77,7 @@
     line-height: 1.4rem;
     font-size: 1.1rem;
     max-width: 830px;
-    border: 2px dotted #b65987;
+    border: 2px dotted #088284;
     border-radius: 5px;
     padding: 20px;
     animation: fadeInSlide 1s ease forwards;
@@ -110,11 +110,11 @@
 }
 
 .icon:hover {
-    color: #b65987;
+    color: #088284;
 }
 
 .active {
-    color: #007bff; 
+    color: #088284; 
 }
 
 /* Mobile devices with screen smaller than 480px */

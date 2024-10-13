@@ -60,14 +60,17 @@ function Usuarios() {
       </div>
 
       <main className={styles.usersContainer}>
-        <h1>Guias</h1>
-
+        <div className={styles.usersContent}>
+          <h1>Guias</h1>
+          <p>Explore a lista de guias de viagem preparados para embarcar em uma nova jornada a qualquer momento. <SmilePlus /></p>
+        </div>
         {usuarios.length > 0 ? (
-          <table className={styles.tableContainer}>
-            <thead border="1">
+          <div className={styles.tableContainer}>
+          <table border="1">
+            <thead>
               <tr>
-                <th>Nome</th>
-                <th>Email</th>
+                <th>Guia</th>
+                <th>Contato</th>
                 <th>Ações</th>
               </tr>
             </thead>
@@ -77,24 +80,27 @@ function Usuarios() {
                   <td>{usuario.nome_usuario}</td>
                   <td>{usuario.email_usuario}</td>
                   <td>
-                    <button onClick={() => handleEdit(usuario.id)} className={styles.button}>
-                      <Pencil className={styles.icon} />
-                    </button>
-                    <button onClick={() => handleDelete(usuario.id)} className={styles.button}>
-                      <Trash2 className={styles.icon} />
-                    </button>
+                  <div className={styles.iconContainer}>
+                    <div className={styles.iconEdit}>
+                      <button onClick={() => handleEdit(usuario.id)} className={styles.button}>
+                        <Pencil className={styles.icon} />
+                      </button>
+                      </div>
+                      <div className={styles.iconDelete}>
+                      <button onClick={() => handleDelete(usuario.id)} className={styles.button}>
+                        <Trash2 className={styles.icon} />
+                      </button>
+                    </div>
+                    </div>
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
+          </div>
         ) : (
-          <p>Nenhum usuário cadastrado.</p>
+          <p>Ainda não temos guias prontos para explorar.</p>
         )}
-
-        <footer className={styles.footer}>
-          <p>Lista de usuários cadastrados <SmilePlus /></p>
-        </footer>
       </main>
     </div>
   );

@@ -5,7 +5,7 @@
     top: 0;
     width: 250px;
     background-color: #586fdf;
-    color: #cbcae0;
+    color: #F5F5F5;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -35,14 +35,10 @@
     position: relative;
     font-family: "Josefin Sans", sans-serif;
     text-decoration: none;
-    color: #cbcae0;
+    color: #F5F5F5;
     background-color: #586fdf;
     transition: color 0.3s ease;
     width: 80%;
-}
-
-.link:hover {
-    color: #b65987;
 }
   
 .link::before,
@@ -54,7 +50,7 @@
 }
   
 .link::before {
-    background-color: #cbcae0; 
+    background-color: #F5F5F5; 
     height: 2px;
     bottom: 0;
     transform-origin: 100% 50%;
@@ -71,7 +67,7 @@
     transform: translate3d(200%, 0, 0); 
     transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
     color: #586fdf; 
-    -webkit-text-stroke: 1px #cbcae0;
+    -webkit-text-stroke: 1px #F5F5F5;
 }
   
 .link:hover::before {
@@ -93,13 +89,12 @@
 }
   
 .activeLink {
-    color: #cbcae0;
-    border: 2px dotted #b65987;
+    color: #F5F5F5;
+    /* border: 2px dotted #F5F5F5; */
     border-radius: 5px;
     padding: 5px;
-    /* background-color: #b65987; 
-    border-radius: 5px;
-    padding: 5px; */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+    transition: box-shadow 0.3s ease-in-out;
 }
 
 .linkOut {
@@ -108,64 +103,14 @@
     gap: 10px;
     border: none;
     background-color: #586fdf;
-    color: #cbcae0;
+    color: #F5F5F5;
     cursor: pointer;
 }
 
 .linkOut:hover {
-    color: #b65987;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+    transition: text-shadow 0.3s ease-in-out;
 }
-  
-
-/* .link {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-family: "Josefin Sans", sans-serif;
-    text-decoration: none;
-    color: #cbcae0;
-    cursor: pointer;
-    background-color: #586fdf;
-    border: none;
-    position: relative;
-    overflow: hidden;
-    transition: color 0.3s ease, background-color 0.4s ease;
-}
-
-.link::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 80%;
-    height: 100%;
-    background-color: #b65987; 
-    border-radius: 5px;
-    transition: left 0.4s ease;
-    z-index: 0;
-}
-
-.link:hover::before {
-    left: 0;
-}
-
-.link:hover {
-    color: #cbcae0;
-} */
-
-/* Para garantir que o texto fique acima do fundo */
-/* .link > * {
-    position: relative;
-    z-index: 1;
-}
-
-.link:active,
-.activeLink {
-    background-color: #b65987; 
-    color: #cbcae0; 
-    border-radius: 5px;
-    width: 80%;
-} */
 
 .sidebarLogout {
     display: flex;

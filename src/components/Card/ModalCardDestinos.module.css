@@ -12,7 +12,7 @@
 }
 
 .modalContent {
-  background: #cbcae0;
+  background: #F5F5F5;
   padding: 24px;
   border-radius: 12px;
   width: 50vw;
@@ -32,7 +32,7 @@
 }
 
 .modalContent p {
-  color:#cbcae0;
+  color:#F5F5F5;
   background-color: #586fdf;
   font-size: 1rem;
   margin-bottom: 10px;
@@ -54,7 +54,7 @@
 }
 
 .close:hover {
-  color: #b65987; 
+  color: #088284; 
 }
 
 .tabs {
@@ -67,7 +67,7 @@
   cursor: pointer;
   background-color: #586fdf;
   border: none;
-  color: #cbcae0;
+  color: #F5F5F5;
   margin: 0 5px;
   border-radius: 5px;
   font-size: 1rem;
@@ -75,11 +75,11 @@
 }
 
 .tabButton:hover {
-  background-color: #b65987;
+  background-color: #088284;
 }
 
 .activeTab {
-  background-color: #b65987;
+  background-color: #088284;
 }
 
 .imageTitle h3,
@@ -88,12 +88,11 @@
   margin-bottom: 15px;
 }
 
-.modalImage {
-  background-color: #b65987;
+.modalImage img {
   border-radius: 5px;
   width: 100%;
   height: 50vh;
-  color: #cbcae0;
+  color: #F5F5F5;
 }
 
 .mapContainer {
@@ -120,7 +119,7 @@ summary {
 }
 
 summary:hover {
-  color: #b65987; 
+  color: #088284; 
 }
 
 details p {

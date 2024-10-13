@@ -14,17 +14,17 @@ table {
 th, td {
     padding: 15px;
     text-align: left;
-    border: 1px solid #586fdf;
+    border: 1px solid #088284;
 }
 
 th {
     background-color: #586fdf;
-    color: #cbcae0;
+    color: #F5F5F5;
 }
 
 td {
     font-family: "Josefin Sans", sans-serif;
-    color: #b65987;
+    color: #088284;
 }
 
 th:nth-child(2),
@@ -33,7 +33,7 @@ td:nth-child(2) {
 }
 
 th:nth-child(1) {
-    border-right-color: #cbcae0;
+    border-right-color: #F5F5F5;
 }
 
 tr {
