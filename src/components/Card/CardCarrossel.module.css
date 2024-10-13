@@ -81,6 +81,7 @@
 .orgImg {
   background-color: #586fdf;
   border-radius: 10px;
+  font-size: 1em;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -99,6 +100,10 @@
   display: flex;
   justify-content: flex-start;
   transition: filter 0.3s ease-in-out;
+  white-space: nowrap;       
+  overflow: hidden;            
+  text-overflow: ellipsis;
+  
 }
 
 .orgImg li:hover {
@@ -156,7 +161,7 @@
   border-radius: 25px;
   border: 2px solid #586fdf;
   color: #cbcae0;
-  font-size: 16px;
+  font-size: 1em;
   font-weight: bold;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -197,6 +202,7 @@
 
 /* Media queries for tablets & mobile devices */
 @media (min-width: 481px) and (max-width: 768px) {
+
   .cardsContainer {
     width: 80vw;
     height: 440px;
