@@ -6,12 +6,12 @@
     margin-right: 140px;
     cursor: pointer;
     font-size: 24px; 
-    color: #586fdf; 
+    color: #088284; 
     transition: color 0.3s;
 }
 
 .backBtn:hover {
-    color: #b65987; 
+    color: #586fdf; 
 }
 
 /* Mobile devices with 390px */
