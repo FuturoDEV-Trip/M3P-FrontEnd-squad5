@@ -28,13 +28,13 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 70vw;
   margin-left: 20px;
-  border-left: 5px dashed #cbcae0;
+  border-left: 5px dashed #F5F5F5;
   overflow-y: auto;
   max-height: 100%;
 }
 
 .form h1 {
-  color: #cbcae0;
+  color: #F5F5F5;
   font-family: "Josefin Sans", sans-serif;
   text-align: left;
   margin-bottom: 20px;
@@ -49,7 +49,7 @@
 
 .userGroup label {
   margin: 10px 0 5px;
-  color: #cbcae0;
+  color: #F5F5F5;
   font-family: "Josefin Sans", sans-serif;
   text-align: left;
 }
@@ -58,20 +58,20 @@
   padding: 10px;
   margin-bottom: 5px;
   outline: none;
-  background: #cbcae0;
-  color: #b65987;
-  border: 1px solid #cbcae0;
+  background: #F5F5F5;
+  color: #088284;
+  border: 1px solid #F5F5F5;
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
 }
 
 .userInput:focus {
-  border-color: #b65987;
-  box-shadow: 0 0 4px 2px #b65987;
+  border-color: #088284;
+  box-shadow: 0 0 4px 2px #088284;
 }
 
 .error {
-  color: #b65987;
+  color: #088284;
   font-size: 0.8rem;
   text-align: left;
   margin: 5px;
@@ -80,7 +80,7 @@
 }
 
 .successMessage {
-  color: #cbcae0;
+  color: #F5F5F5;
   font-size: 1em;
   margin-bottom: 10px;
 }
@@ -97,8 +97,8 @@
   width: 50%;
   border: none;
   border-radius: 4px;
-  background-color: #b65987;
-  color: #cbcae0;
+  background-color: #088284;
+  color: #F5F5F5;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -109,11 +109,11 @@
 
 .returnButton {
   padding: 15px;
-  width: 10%;
+  width: 20%;
   border: none;
   border-radius: 4px;
-  background-color: #b65987;
-  color: #cbcae0;
+  background-color: #088284;
+  color: #F5F5F5;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -124,23 +124,37 @@
 
 /* Small screens (max-width: 480px) */
 @media (max-width: 480px) {
+  .usersContainer {
+    padding-right: 20px;
+}
+
   .form {
-      width: 85vw;
-      padding: 15px;
+      width: 80vw;
       border-radius: 0;
-  }
-  .updateButton {
-      width: 60%;
   }
 }
 
 /* Medium screens (min-width: 481px) and (max-width: 768px) */
 @media (min-width: 481px) and (max-width: 768px) {
+  .usersContainer {
+    padding-right: 20px;
+    margin-left: 80px;
+}
+
   .form {
       width: 90vw;
       padding: 20px;
   }
+
   .updateButton {
       width: 60%;
+  }
+}
+
+/* Large screens (min-width: 769px) and (max-width: 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .usersContainer {
+      padding-right: 40px;
+      margin-left: 270px;
   }
 }
