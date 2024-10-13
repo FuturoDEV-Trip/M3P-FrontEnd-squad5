@@ -169,7 +169,7 @@ O projeto Check Green é um MVP que permite aos usuários (guias):
 
 **Time Check Green:**
 - Julia Ribeiro
-- Lucas Lino
+- Lucas Lino Martins
 - Natália Cagnani
 - Ricardo Guerreiro
 
@@ -179,4 +179,5 @@ O projeto será implantado em breve. Assim que o link do deploy estiver disponí
 
 ## 🔗 Contato
 
-Em breve...
+Tem alguma dúvida ou sugestão? Bora bater um papo! A tripulação da Check Green está aqui para te ajudar a planejar viagens mais sustentáveis. Mande sua mensagem para `apicheckgreen@gmail.com` e juntos vamos explorar novos destinos eco-friendly!
+
