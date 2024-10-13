@@ -51,7 +51,6 @@ function EditarDestino() {
         if (cep.length === 8) {
             try {
                 const addressData = await getAddressFromCep(cep);
-                console.log(addressData);
                 setValue('localidade_destino', addressData.logradouro);
                 setValue('cidade_destino', addressData.localidade);
                 setValue('complemento_destino', addressData.complemento);

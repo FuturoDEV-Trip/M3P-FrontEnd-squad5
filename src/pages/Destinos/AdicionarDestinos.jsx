@@ -28,7 +28,6 @@ function AdicionarDestinos() {
     const token = localStorage.getItem("token");
 
     try {
-      console.log(data)
       await axios.post(
         "http://localhost:3000/destinos",
         { ...data, id_usuario: user.id },

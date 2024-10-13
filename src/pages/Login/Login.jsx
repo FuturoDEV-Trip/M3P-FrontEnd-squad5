@@ -19,7 +19,6 @@ function Login() {
 });
 
   async function onSubmit(data) {
-    console.log(data);
     try {
       await signIn(data);
       navigate('/');

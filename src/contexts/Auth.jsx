@@ -44,7 +44,6 @@ export function AuthProvider({ children }) {
 
     async function signOut() {
         try {
-            console.log(token)
             await axios.post('http://localhost:3000/logout', {}, {
             headers: {
                 'Authorization': `Bearer ${token}`,
