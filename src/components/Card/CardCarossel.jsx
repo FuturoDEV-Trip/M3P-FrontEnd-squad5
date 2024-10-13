@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "./CardCarrossel.module.css";
-import { Pencil, Trash2, ChevronLeft, ChevronRight } from 'lucide-react'; 
+import { Pencil, Trash2, ChevronLeft, ChevronRight } from 'lucide-react';
 import ModalCardDestinos from "./ModalCardDestinos";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -69,10 +69,10 @@ const CardCarrossel = () => {
   };
 
   const anterior = () => {
-    setIndiceAtual((prev) => 
+    setIndiceAtual((prev) =>
       (prev - 1 + Math.ceil(destinos.length / cardsPorPagina)) % Math.ceil(destinos.length / cardsPorPagina)
-  );
-};
+    );
+  };
 
   const inicio = indiceAtual * cardsPorPagina;
   const cardsVisiveis = destinos.slice(inicio, inicio + cardsPorPagina);
@@ -98,7 +98,10 @@ const CardCarrossel = () => {
               {cardsVisiveis.map((destino) => (
                 <div className={styles.card} key={destino.id}>
                   <div className={styles.cardImage}>
-                    <img src={destino.img_destino} alt={destino.nome_destino} />
+                    <img
+                      src={`https://picsum.photos/200?random=${Math.random()}`}
+                      alt={destino.nome_destino}
+                    />
                   </div>
                   <div className={styles.orgImg}>
                     <ul>
@@ -115,7 +118,7 @@ const CardCarrossel = () => {
                     </button>
                     <Link to={`/editar-destino/${destino.id}`}>
                       <button className={styles.btnEditar}>
-                      <Pencil />
+                        <Pencil />
                       </button>
                     </Link>
                     <button
@@ -142,7 +145,7 @@ const CardCarrossel = () => {
             </div>
           </>
         )}
-        
+
         <ModalCardDestinos
           isOpen={modalOpen}
           onClose={() => setModalOpen(false)}

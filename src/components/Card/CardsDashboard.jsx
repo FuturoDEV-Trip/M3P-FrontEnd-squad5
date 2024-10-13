@@ -35,7 +35,7 @@ function CardsDashboard() {
                 const user = users.find((u) => u.id === place.id_usuario);
                 return (
                     <div key={place.id} className={styles.cardView}>
-                        <img src={place.imagem_destino || 'https://via.placeholder.com/300'} alt={place.nome_destino} />
+                        <img src={place.imagem_destino || `https://picsum.photos/200?random=${Math.random()}`} alt={place.nome_destino} />
                         <div className={styles.cardContent}>
                             <h3>{place.nome_destino}</h3>
                             <div className={styles.infoContainer}>
