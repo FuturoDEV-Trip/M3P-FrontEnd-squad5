@@ -55,7 +55,7 @@ const ModalCardDestinos = ({ isOpen, onClose, destino }) => {
             <div className={styles.imageTitle}>
                 <h3>Galeria de Fotos</h3>
               <div className={styles.modalImage}>
-                <img src={destino.img_destino} alt={destino.nome_destino} />
+              <img src={destino.imagem_destino || `https://picsum.photos/200?random=${Math.random()}`} alt={destino.nome_destino} />
               </div>
             </div>
           )}
