@@ -7,18 +7,22 @@
     justify-content: center;
     align-items: center;
 }
+
+.iconContainer {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
   
-/* .left {
-    flex: 1;
-    background: url('./src/assets/login-page-check-green.jpeg') no-repeat center center;
-    background-size: cover;
-    color: #cbcae0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 50px;
-} */
+.homeIcon {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    color: #088284;
+}
+  
+.homeIcon:hover {
+    transform: scale(1.1);
+}
 
 .left {
     flex: 1;
@@ -32,7 +36,7 @@
     display: flex;
     flex-direction: column;
     height: 10%;
-    background-color: #b65987;
+    background-color: #088284;
     border-radius: 15px;
     padding: 10px 20px;   
     align-items: center;
@@ -42,13 +46,13 @@
     font-size: 3rem;
     margin-bottom: 5px;
     /* text-shadow: 0 0 20px #cbcae0; */
-    color: #cbcae0;
+    color: #F5F5F5;
 }
   
 .left p {
     font-size: 1.5rem;
     -webkit-text-stroke-width: 0.5px;
-    color: #cbcae0;
+    color: #F5F5F5;
     font-family: "Josefin Sans", sans-serif;
 }
   
@@ -59,13 +63,13 @@
     justify-content: center;
     align-items: center;
     padding: 20px;
-    background-color: #cbcae0;
+    background-color: #F5F5F5;
 }
 
 .right fieldset {
     padding: 30px;
     border-radius: 5px;
-    border: 2px dotted #b65987;
+    border: 2px dotted #088284;
     box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
 }
   
@@ -96,8 +100,8 @@
     padding: 10px;
     margin-bottom: 10px;
     outline: none;
-    background: #cbcae0;
-    color: #b65987;
+    background: #F5F5F5;
+    color: #088284;
     border: 1px solid #586fdf;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
     border-radius: 5px;
@@ -114,8 +118,8 @@
   
 .loginButton {
     padding: 10px;
-    background-color: #b65987;
-    color: #cbcae0;
+    background-color: #088284;
+    color: #F5F5F5;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -130,14 +134,14 @@
 }
   
   @keyframes pulse {
-    0% { box-shadow: 0 0 0 0 #b65987; }
+    0% { box-shadow: 0 0 0 0 #088284; }
   }
 
 .right p {
     display: flex;
     justify-content: center;
     margin-top: 20px;
-    color: #b65987;
+    color: #088284;
 }
 
 .link {
@@ -147,15 +151,15 @@
     font-family: "Josefin Sans", sans-serif;
     &:hover,
     &:focus{
-    color: #b65987;
+    color: #088284;
     }
     &:active{
-    color: #b65987;
+    color: #088284;
     }
 }
 
 .error {
-    color: #b65987;
+    color: #088284;
     font-size: 0.8rem;
     text-align: left;
     margin: 5px;

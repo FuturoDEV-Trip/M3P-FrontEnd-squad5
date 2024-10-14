@@ -1,10 +1,11 @@
-  .sidebar {
+
+.sidebar {
     position: fixed;
     left: 0;
     top: 0;
     width: 250px;
     background-color: #586fdf;
-    color: #cbcae0;
+    color: #F5F5F5;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -27,32 +28,88 @@
 }
 
 .link {
+    display: flex; 
+    align-items: center;
+    gap: 12px;
+    overflow: hidden;
+    position: relative;
+    font-family: "Josefin Sans", sans-serif;
+    text-decoration: none;
+    color: #F5F5F5;
+    background-color: #586fdf;
+    transition: color 0.3s ease;
+    width: 80%;
+}
+  
+.link::before,
+.link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    left: 0;
+}
+  
+.link::before {
+    background-color: #F5F5F5; 
+    height: 2px;
+    bottom: 0;
+    transform-origin: 100% 50%;
+    transform: scaleX(0);
+    transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+  
+.link::after {
+    content: attr(data-replace); 
+    height: 100%;
+    top: 10px;
+    left: 6px;
+    transform-origin: 100% 50%;
+    transform: translate3d(200%, 0, 0); 
+    transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+    color: #586fdf; 
+    -webkit-text-stroke: 1px #F5F5F5;
+}
+  
+.link:hover::before {
+    transform-origin: 0% 50%;
+    transform: scaleX(1);
+}
+  
+.link:hover::after {
+    transform: translate3d(0, 0, 0); 
+}
+  
+.link span {
+    display: inline-block;
+    transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+  
+.link:hover span {
+    transform: translate3d(-200%, 0, 0); 
+}
+  
+.activeLink {
+    color: #F5F5F5;
+    /* border: 2px dotted #F5F5F5; */
+    border-radius: 5px;
+    padding: 5px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.linkOut {
     display: flex;
     align-items: center;
     gap: 10px;
-    font-family: "Josefin Sans", sans-serif;
-    text-decoration: none;
-    color: #cbcae0;
-    cursor: pointer;
-    background-color: #586fdf;
     border: none;
+    background-color: #586fdf;
+    color: #F5F5F5;
+    cursor: pointer;
 }
 
-.link:hover,
-.link:focus {
-  color: #b65987;
-}
-
-.link:active {
-  color: #c47493;
-}
-
-.link:active {
-    color: #c47493;
-}
-
-.activeLink {
-    color: #b65987; 
+.linkOut:hover {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+    transition: text-shadow 0.3s ease-in-out;
 }
 
 .sidebarLogout {
@@ -81,12 +138,14 @@
         margin: 10px 0;
     }
 
-    .link {
+    .link,
+    .linkOut {
         font-size: 1.2rem; 
         justify-content: center;
     }
 
-    .link span {
+    .link span,
+    .linkOut span {
         display: none; 
     }
 }
@@ -113,13 +172,15 @@
         margin: 15px 0;
     }
 
-    .link {
+    .link,
+    .linkOut {
         justify-content: center; 
         font-size: 1.8rem; 
         gap: 0; 
     }
 
-    .link span {
+    .link span,
+    .linkOut span {
         display: none; 
     }
 }

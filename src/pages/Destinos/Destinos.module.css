@@ -51,18 +51,18 @@
 }
 
 .mainText button {
-    background: #b65987;
+    background: #088284;
     border: none;
     border-radius: 5px;
     padding: 10px 60px;
-    color: #cbcae0;
+    color: #F5F5F5;
     cursor: pointer;
     font-size: 1rem;
     margin-right: 140px;
 }
 
 .mainText button:hover {
-    background-color: #475bb5;
+    background-color: #586fdf;
 }
 
 .mainView {
@@ -83,11 +83,11 @@
 }
 
 .icon:hover {
-    color: #b65987;
+    color: #088284;
 }
 
 .active {
-    color: #007bff; 
+    color: #088284; 
 }
 
 /* Mobile devices with screen smaller than 480px */
@@ -108,6 +108,7 @@
     }
 
     .mainText p {
+        text-align: left;
         margin-left: 30px;
     }
 

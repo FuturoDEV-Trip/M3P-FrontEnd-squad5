@@ -2,7 +2,7 @@
     display: flex;
     flex: 1;
     height: 100vh; 
-    overflow: hidden; /* Don't pass the height */
+    overflow: hidden;
 }
 
 .placesContainer {
@@ -10,12 +10,12 @@
     flex-grow: 1;
     justify-content: flex-end;
     margin: 0 auto;
-    overflow-y: auto; /* Vertical scroll */
+    overflow-y: auto; 
     padding-right: 80px;
 }
 
 .placesContainer h1 {
-    color: #cbcae0;
+    color: #F5F5F5;
     margin: 10px 0 20px 0;
     text-align: left;
 }
@@ -29,19 +29,19 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 70vw;
     margin-left: 20px;
-    border-left: 5px dashed #cbcae0;
+    border-left: 5px dashed #F5F5F5;
     overflow-y: auto; 
     max-height: 100%; 
 }
 
 .placesForm h2 {
-    color: #cbcae0;
+    color: #F5F5F5;
     font-family: "Josefin Sans", sans-serif;
     text-align: left;
 }
 
 .placesForm p {
-    color: #cbcae0;
+    color: #F5F5F5;
     margin-bottom: 20px;
     font-family: "Josefin Sans", sans-serif;
 }
@@ -55,7 +55,7 @@
 
 .placesGroup label {
     margin: 10px 0 5px;
-    color: #cbcae0;
+    color: #F5F5F5;
     font-family: "Josefin Sans", sans-serif;
     text-align: left;
 }
@@ -64,9 +64,9 @@
     padding: 10px;
     margin-bottom: 5px;
     outline: none;
-    background: #cbcae0;
-    color: #b65987;
-    border: 1px solid #cbcae0;
+    background: #F5F5F5;
+    color: #088284;
+    border: 1px solid #F5F5F5;
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
     &::placeholder {
@@ -76,8 +76,8 @@
 }
 
 .placesInput:focus {
-    border-color: #b65987;
-    box-shadow: 0 0 4px 2px #b65987;
+    border-color: #088284;
+    box-shadow: 0 0 4px 2px #088284;
 }
 
 .placesGrid {
@@ -86,7 +86,7 @@
 }
   
 .error {
-    color: #b65987;
+    color: #088284;
     font-size: 0.8rem;
     text-align: left;
     margin: 5px;
@@ -95,7 +95,7 @@
 }  
   
 .successMessage {
-    color: #cbcae0;
+    color: #F5F5F5;
     font-size: 1em;
     margin-bottom: 10px;
 }
@@ -112,8 +112,8 @@
     width: 50%;
     border: none;
     border-radius: 4px;
-    background-color: #b65987;
-    color: #cbcae0;
+    background-color: #088284;
+    color: #F5F5F5;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -128,8 +128,8 @@
     width: 10%;
     border: none;
     border-radius: 4px;
-    background-color: #b65987;
-    color: #cbcae0;
+    background-color: #088284;
+    color: #F5F5F5;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }

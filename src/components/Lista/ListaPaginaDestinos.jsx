@@ -3,20 +3,23 @@ import { Link } from 'react-router-dom';
 import { Pencil, Trash2 } from 'lucide-react'; 
 import { deletePlace } from '../../service/placesService';
 import styles from './ListaPaginaDestinos.module.css';
+import axios from 'axios';
+import { getApiUrl } from '../../service/api';
 
 function ListaPaginaDestinos() {
     const [places, setPlaces] = useState([]);
     const [users, setUsers] = useState([]);
     const [successMessage, setSuccessMessage] = useState('');
+    const token = localStorage.getItem("token")
 
     async function loadPlaces() {
         try {
-            const response = await fetch('http://localhost:3000/destinos');
-            if (!response.ok) {
-                throw new Error('Ops! Servidor sem resposta.');
-            }
-            const data = await response.json();
-            setPlaces(data);
+            const response = await axios.get(getApiUrl('destinos'), {headers: {
+                'Authorization': `${token}`,
+                'Content-Type': 'application/json'
+              }});
+
+            setPlaces(response.data);
         } catch (error) {
             console.log('Falha ao carregar destinos', error);
         }
@@ -24,12 +27,11 @@ function ListaPaginaDestinos() {
 
     async function loadUsers() {
         try {
-            const response = await fetch('http://localhost:3000/usuarios');
-            if (!response.ok) {
-                throw new Error('Ops! Servidor sem resposta.');
-            }
-            const data = await response.json();
-            setUsers(data);
+            const response = await axios.get(getApiUrl('usuarios'), {headers: {
+                /* 'Authorization': `${token}`, */
+                'Content-Type': 'application/json'
+              }});
+            setUsers(response.data);
         } catch (error) {
             console.log('Falha ao carregar usuários', error);
         }
@@ -47,7 +49,7 @@ function ListaPaginaDestinos() {
                 alert('Falha ao deletar destino!');
             }
         }
-    };
+    }
 
     useEffect(() => {
         loadPlaces();
@@ -75,14 +77,20 @@ function ListaPaginaDestinos() {
                             <td>{place.categoria_destino}</td> 
                             <td>{user ? user.nome_usuario : 'Admin'}</td>
                             <td>
+                                <div className={styles.iconContainer}>
+                                <div className={styles.iconEdit}>    
                                 <Link to={`/editar-destino/${place.id}`}>
                                     <button className={styles.button}>
                                         <Pencil className={styles.icon} />
                                     </button>
                                 </Link>
+                                </div>
+                                <div className={styles.iconDelete}>
                                 <button className={styles.button} onClick={() => handleDelete(place.id)}>
                                     <Trash2 className={styles.icon} />
                                 </button>
+                                </div>
+                                </div>
                             </td>
                         </tr>
                         );

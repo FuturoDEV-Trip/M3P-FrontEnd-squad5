@@ -1,0 +1,159 @@
+.cardsContainer {
+    display: flex;
+    flex-wrap: wrap;    
+    gap: 40px;
+    margin: 40px auto;
+}
+  
+.cardView {
+    position: relative;
+    width: 300px;
+    height: 440px;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #F5F5F5;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s ease;
+}
+  
+.cardView:hover {
+    transform: scale(1.05);
+}
+  
+.cardView img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+  
+.cardView:hover img {
+    filter: blur(6px);
+    transform: scale(1.1);
+}
+  
+.cardContent {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 30px;
+    background: linear-gradient(to bottom, rgba(203, 202, 224, 0.5), #F5F5F5);
+    transform: translateY(100%);
+    transition: transform 0.5s ease;
+}
+
+.cardView:hover .cardContent {
+    transform: translateY(0);
+}
+  
+.cardContent h3 {
+    margin: 10px 0;
+    font-size: 1.2rem;
+    color: #088284;
+}
+
+.cardContent p {
+    margin: 0;
+    font-size: 1rem;
+    opacity: 0.8;
+    max-height: 80px;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+.cardContent p.expanded {
+    max-height: 300px;
+    overflow: auto;
+}
+
+.infoContainer {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.category, 
+.city {
+    padding: 5px; 
+    border-radius: 5px; 
+    font-size: 0.9rem;
+    color: #586fdf;
+    border: 2px dotted #088284;
+}
+
+.category:hover, .city:hover {
+    opacity: 0.8; 
+}
+
+.user {
+    font-size: 0.6rem;
+    color: #088284; 
+    margin-top: 5px;
+}
+  
+.exploreButton {
+    margin-top: 40px;
+    padding: 10px;
+    background-color: #586fdf;
+    color: #F5F5F5;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+  
+.exploreButton:hover {
+    background-color: #586fdf;
+}
+  
+.exploreButton:focus {
+    outline: none;
+}
+  
+/* Mobile devices with screen smaller than 480px */
+@media (max-width: 480px) {
+    .cardView {
+      width: 95%; 
+      margin-bottom: 20px;
+    }
+}
+
+/* Tablets & small screens (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+    .cardView {
+        width: calc(50% - 20px);
+        height: calc(70% - 20px);
+        margin-bottom: 20px;
+    }
+
+    .cardContent {
+        padding: 10px;
+    }
+
+    .cardContent p {
+        max-height: 100px;
+        font-size: 0.8rem;
+    }
+}
+
+/* Laptops & small screens (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .cardView {
+        width: calc(30% - 20px);
+        height: calc(150% - 20px);
+        margin-bottom: 20px;
+    }
+
+    .cardContent {
+        padding: 8px;
+    }
+
+    .cardContent p {
+        max-height: 80px;
+    }
+}

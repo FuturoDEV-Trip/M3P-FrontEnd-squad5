@@ -4,6 +4,7 @@ import { z } from "zod";
 import { zodResolver } from '@hookform/resolvers/zod';
 import styles from './Login.module.css';
 import { useAuth } from '../../contexts/Auth';
+import { House } from 'lucide-react';
 
 const schema = z.object({
     email_usuario: z.string().email('E-mail inválido'),
@@ -18,10 +19,9 @@ function Login() {
 });
 
   async function onSubmit(data) {
-    console.log(data);
     try {
       await signIn(data);
-      navigate('/dashboard');
+      navigate('/');
     } catch (error) {
       alert(error.message || 'Falha no login!')
     }
@@ -30,6 +30,11 @@ function Login() {
   return (
 
       <main className={styles.loginContainer}>
+        <div className={styles.iconContainer}>
+          <Link to="/">
+            <House size={24} className={styles.homeIcon} />
+          </Link>
+        </div>
         <div className={styles.left}>
           <div className={styles.box}>
             <h1>Check Green</h1>
@@ -62,7 +67,7 @@ function Login() {
 
               <button type="submit" className={styles.loginButton} disabled={isSubmitting}>{isSubmitting ? 'Carregando...': 'Login'}</button>
 
-              <p>Ainda não tem uma conta? <span><Link className={styles.link} to="/cadastro">Cadastro</Link></span></p>
+              <p>Sem cartão de embarque? <span><Link className={styles.link} to="/cadastro">Faça Check-in!</Link></span></p>
 
             </form>
             </fieldset>

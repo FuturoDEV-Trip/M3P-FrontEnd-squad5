@@ -17,12 +17,12 @@ th, td {
 
 th {
     background-color: #586fdf;
-    color: #cbcae0;
+    color: #F5F5F5;
 }
 
 td {
     font-family: "Josefin Sans", sans-serif;
-    color: #b65987;
+    color: #088284;
 }
 
 th:nth-child(2),
@@ -35,13 +35,26 @@ th:nth-child(4) {
 th:nth-child(1),
 th:nth-child(2),
 th:nth-child(3) {
-    border-right-color: #cbcae0;
+    border-right-color: #F5F5F5;
 }
 
-td:nth-child(4) {
+.iconContainer {
     display: flex;
-    gap: 8px;
+    gap: 10px;
     justify-content: center;
+}
+
+.iconEdit,
+.iconDelete {
+    border: 2px dotted #088284;
+    border-radius: 5px;
+    padding: 5px 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.iconEdit:hover,
+.iconDelete:hover {
+    transform: scale(1.1);
 }
 
 .button {
@@ -56,11 +69,11 @@ td:nth-child(4) {
 }
 
 .icon:hover {
-    color: #b65987;
+    color: #088284;
 }
 
 .error {
-    color: #b65987;
+    color: #088284;
     font-size: 0.8rem;
     text-align: left;
     margin: 5px;
@@ -69,7 +82,7 @@ td:nth-child(4) {
 }  
   
 .successMessage {
-    color: #cbcae0;
+    color: #586fdf;
     font-size: 1em;
     margin-bottom: 10px;
 }

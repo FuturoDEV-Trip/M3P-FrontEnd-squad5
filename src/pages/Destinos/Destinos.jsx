@@ -1,15 +1,16 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import 'leaflet/dist/leaflet.css';
-import { PartyPopper, TableProperties, MapPinned } from 'lucide-react';
+import { PartyPopper, MapPinned, LayoutGrid, List } from 'lucide-react';
 import MapaPaginaDestinos from '../../components/Mapa/MapaPaginaDestinos';
 import ListaPaginaDestinos from '../../components/Lista/ListaPaginaDestinos';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import BotaoVoltar from '../../components/Botao/BotaoVoltar';
 import styles from './Destinos.module.css';
+import CardCarrossel from '../../components/Card/CardCarossel';
 
 function Destinos() {
-    const [viewMode, setViewMode] = useState('list');
+    const [viewMode, setViewMode] = useState('carrossel');
     return (
     
         <div className={styles.placesContainer}>
@@ -27,19 +28,23 @@ function Destinos() {
                     </div>
                 </div>
                 <div className={styles.mainView}>
-                    <TableProperties 
-                    className={`${styles.icon} ${viewMode === 'list' ? styles.active : ''}`}
-                    onClick={() => setViewMode('list')}
-                    />
-                    <MapPinned 
-                    className={`${styles.icon} ${viewMode === 'map' ? styles.active : ''}`}
-                    onClick={() => setViewMode('map')}
-                    />
-                    <BotaoVoltar />
-                </div>
-                <div className={styles.alternateView}>
-                    {viewMode === 'list' ? <ListaPaginaDestinos /> : <MapaPaginaDestinos />}
-                </div>
+                            <LayoutGrid 
+                        className={`${styles.icon} ${viewMode === 'carrossel' ? styles.active : ''}`}
+                            onClick={() => setViewMode('carrossel')}
+                            />
+                            <List
+                            className={`${styles.icon} ${viewMode === 'list' ? styles.active : ''}`}
+                            onClick={() => setViewMode('list')}
+                            />
+                            <MapPinned 
+                            className={`${styles.icon} ${viewMode === 'map' ? styles.active : ''}`}
+                            onClick={() => setViewMode('map')}
+                            />
+                            <BotaoVoltar />
+                            </div>
+                        <div className={styles.alternateView}>
+                            {viewMode === 'carrossel' ? <CardCarrossel /> : viewMode === 'list' ? <ListaPaginaDestinos /> : <MapaPaginaDestinos />}
+                        </div>
             </main>
         </div>
     )

@@ -32,6 +32,6 @@ async function getAddressFromCep(cep) {
             console.error('Falha ao carregar informações do destino ou coordenadas', error);
             throw error;
         }
-};
+}
 
 export default getAddressFromCep;

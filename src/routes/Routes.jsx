@@ -7,18 +7,19 @@ import Usuarios from '../pages/Usuarios/Usuarios';
 import Destinos from '../pages/Destinos/Destinos';
 import AdicionarDestinos from '../pages/Destinos/AdicionarDestinos';
 import EditarDestino from '../pages/Destinos/EditarDestino';
+import EditarUsuario from '../pages/Usuarios/EditarUsuario';
 
 function AppRoutes() {
+
     return (
         <Routes>
-            {/* Public Routes */}
-            <Route path="/" element={<Login />} />
+            <Route path='/' element={<Dashboard />} />
+            <Route path="/login" element={<Login />} />
             <Route path="/cadastro" element={<Cadastro />} />
 
-            {/* Private Routes */}
             <Route element={<PrivateRoute />}>
-                <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/usuarios" element={<Usuarios />} />
+                <Route path='/editar-usuario/:id' element={<EditarUsuario/>}/>
                 <Route path="/destinos" element={<Destinos />} />
                 <Route path="/adicionar-destinos" element={<AdicionarDestinos />} />
                 <Route path="/editar-destino/:id" element={<EditarDestino />} />

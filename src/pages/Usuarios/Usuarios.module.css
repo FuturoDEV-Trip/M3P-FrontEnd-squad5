@@ -1,63 +1,173 @@
 .container {
-    display: flex;
+  display: flex;
+  width: 100%;
 }
 
 .usersContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    width: 100vw;
-    height: 100vh;
-    background-color: #cbcae0;
-    background: url('/public/assets/boarding3.png');
-    background-repeat: no-repeat;
-    background-position: right;
-    background-size: contain;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background: url("/public/assets/boarding3.png");
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: contain;
 }
 
-.usersContainer h1 {
-    color: #586fdf;
-    font-size: 3rem;
-    margin-top: 20px;
+.usersContent h1,
+.usersContent p {
+  color: #586fdf;
+  text-align: left;
 }
 
-.usersContainer p {
-    color: #586fdf;
-    font-style: italic;
-    margin-bottom: 20px;
+.usersContent h1 {
+  font-size: 3rem;
+  margin-top: 0;
+}
+
+.usersContent p {
+  font-size: 1rem;
+}
+
+.tableContainer {
+  display: flex;
+  margin: 20px auto;
+  width: 50%;
+  border-collapse: collapse;
+}
+
+.tableContainer td {
+  background-color: #F5F5F5;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #586fdf;
+}
+
+th {
+  background-color: #586fdf;
+  color: #F5F5F5;
+}
+
+td {
+  font-family: "Josefin Sans", sans-serif;
+  color: #088284;
+}
+
+.iconContainer {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.iconEdit,
+.iconDelete {
+  border: 2px dotted #088284;
+  border-radius: 5px;
+  padding: 5px 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.iconEdit:hover,
+.iconDelete:hover {
+  transform: scale(1.1);
+}
+
+.button {
+  border: none;
+  background: none;
+  color: #586fdf;
+}
+
+.icon {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.icon:hover {
+  color: #088284;
 }
 
 /* Media Queries */
 
 /* Small screens (max-width: 480px) */
 @media (max-width: 480px) {
-    .usersContainer h1 {
-        font-size: 1.8rem; 
-    }
+  .container {
+    width: auto;
+  }
 
-    .usersContainer p {
-        font-size: 0.9rem; 
-        padding-left: 60px; 
-    }
+  .usersContainer {
+    width: 100%;
+    padding: 0 10px;
+    background: none;
+  }
 
-    .usersContainer {
-        background-size: cover; 
-        padding: 10px;
-    }
+  .usersContent h1 {
+    font-size: 1.8rem;
+    margin-top: 70px;
+    margin-left: 80px;
+  }
+
+  .usersContent p {
+    font-size: 0.8rem;
+    margin-left: 80px;
+    margin-right: 20px;
+  }
+
+  .table {
+    font-size: 0.8rem;
+    width: 100%;
+  }
+
+  th, td {
+    padding: 8px; 
+  }
 }
 
 /* Medium screens (min-width: 481px) and (max-width: 768px) */
 @media (min-width: 481px) and (max-width: 768px) {
-    .usersContainer h1 {
-        font-size: 2.5rem; 
+  .usersContainer {
+  width: 50%;
+  padding: 0 15px;
+  background: none;
+}
+
+  .usersContent h1 {
+    font-size: 2.5rem;
+    margin-top: 90px;
+    margin-left: 100px;
+  }
+
+  .usersContent p {
+    font-size: 1rem;
+    margin-left: 100px;
+  }
+}
+
+/* Laptops & small screens (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .usersContainer {
+    padding: 0 30px;
+    background: none;
+  }
+  
+    .usersContent h1 {
+      font-size: 2.5rem;
+      margin-top: 90px;
+      margin-left: 240px;
+    }
+  
+    .usersContent p {
+      font-size: 1rem;
+      margin-left: 240px;
+      margin-right: 240px;
     }
 
-    .usersContainer p {
-        font-size: 1rem; 
-    }
-
-    .usersContainer {
-        background-position: center; 
-    }
 }
