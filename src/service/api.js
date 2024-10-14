@@ -1,4 +1,4 @@
-const API_BASE_URL = 'https://m3p-backend-squad5-2.onrender.com';
+const API_BASE_URL = 'https://check-green.onrender.com';
 
 export const ENDPOINTS = {
     dashboard: `${API_BASE_URL}/`,
