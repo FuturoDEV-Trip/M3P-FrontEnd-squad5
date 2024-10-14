@@ -1,4 +1,4 @@
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const API_BASE_URL = 'https://m3p-backend-squad5-2.onrender.com';
 
 export const ENDPOINTS = {
     dashboard: `${API_BASE_URL}/`,
