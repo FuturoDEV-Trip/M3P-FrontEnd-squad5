@@ -34,7 +34,7 @@ O projeto Check Green é um MVP que permite aos usuários (guias):
 
 - **Integração com APIs:**  
   - ViaCEP para obtenção de dados de endereço;
-  - OpenStreetMaps para localização no mapa com coordenadas.
+  - AwesomeAPI para localização no mapa com coordenadas.
 
 - **Design Responsivo:**  
   Interface adaptada para diferentes tamanhos de tela (mobile, tablet e desktop).
@@ -175,7 +175,7 @@ O projeto Check Green é um MVP que permite aos usuários (guias):
 
 ## 🌐 Deploy
 
-O projeto será implantado em breve. Assim que o link do deploy estiver disponível, ele será atualizado neste README.
+Quer embarcar nessa jornada com a gente? É só [clicar aqui](https://check-green-steel.vercel.app/) para explorar o projeto no ar e começar a planejar suas próximas viagens!
 
 ## 🔗 Contato
 
