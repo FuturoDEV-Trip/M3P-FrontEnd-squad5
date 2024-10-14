@@ -80,12 +80,7 @@ th:nth-child(3) {
     font-family: "Josefin Sans", sans-serif;
     font-style: italic;
 }  
-  
-.successMessage {
-    color: #586fdf;
-    font-size: 1em;
-    margin-bottom: 10px;
-}
+
 
 /* Mobile devices with screen smaller than 480px */
 @media (max-width: 480px) {

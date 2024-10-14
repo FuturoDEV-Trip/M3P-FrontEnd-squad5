@@ -98,7 +98,6 @@ function ListaPaginaDestinos() {
                 </tbody>
 
             </table>
-            {successMessage && <div className={styles.successMessage}>{successMessage}</div>}
         </div>
     )
 }
