@@ -25,6 +25,11 @@ export const updatePlace = async (id, updatedData) => {
 };
 
 export const deletePlace = async (id) => {
+    const token = localStorage.getItem("token")
+    if(!token) {
+        console.error('Token não encontrado');
+        throw new Error('Token não encontrado');
+    }
     try {
         await axios.delete(getApiUrl('destinos') + `/${id}`, {
             headers: {
