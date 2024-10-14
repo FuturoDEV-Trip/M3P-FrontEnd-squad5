@@ -5,6 +5,7 @@ import Sidebar from '../../components/Sidebar/Sidebar';
 import getAddressFromCep from '../../service/addressService'; // Serviço para obter o endereço via CEP
 import { Undo2 } from 'lucide-react';
 import styles from './EditarUsuario.module.css';
+import { getApiUrl } from '../../service/api';
 
 function EditarUsuario() {
   const { id } = useParams();
@@ -26,7 +27,7 @@ function EditarUsuario() {
   useEffect(() => {
     const fetchUsuario = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/usuarios/${id}`, {
+        const response = await axios.get(getApiUrl('usuarios') + `/${id}`, {
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}`
           }
@@ -67,7 +68,7 @@ function EditarUsuario() {
     }
 
     try {
-      await axios.put(`http://localhost:3000/usuarios/${id}`, formData, {
+      await axios.put(getApiUrl('usuarios') + `/${id}`, formData, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }

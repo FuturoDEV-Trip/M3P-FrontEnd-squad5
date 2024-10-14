@@ -4,6 +4,7 @@ import { Pencil, SmilePlus, Trash2 } from 'lucide-react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import styles from './Usuarios.module.css';
+import { getApiUrl } from '../../service/api';
 
 function Usuarios() {
   const [usuarios, setUsuarios] = useState([]);
@@ -12,7 +13,7 @@ function Usuarios() {
   useEffect(() => {
     const fetchUsuarios = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/usuarios', {
+        const response = await axios.get(getApiUrl('usuarios'), {
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}`
           }
@@ -33,7 +34,7 @@ function Usuarios() {
   const handleDelete = async (id) => {
     if (window.confirm('Tem certeza que deseja excluir este usuário?')) {
       try {
-        await axios.delete(`http://localhost:3000/usuarios/${id}`, {
+        await axios.delete(getApiUrl('usuarios') + `/${id}`, {
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}`,
             'Content-Type': 'application/json'

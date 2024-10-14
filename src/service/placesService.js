@@ -1,11 +1,11 @@
 import axios from 'axios';
+import { getApiUrl } from './api';
 
-const API_URL = 'http://localhost:3000/destinos';
 const token = localStorage.getItem("token")
 
 export const updatePlace = async (id, updatedData) => {
     try {
-        const response = await axios.put(`${API_URL}/${id}`, updatedData, {
+        const response = await axios.put(getApiUrl('destinos') + `/${id}`, updatedData, {
             headers: {
                 'Authorization': `Bearer ${token}`,
                 'Content-Type': 'application/json'
@@ -20,7 +20,7 @@ export const updatePlace = async (id, updatedData) => {
 
 export const deletePlace = async (id) => {
     try {
-        await axios.delete(`${API_URL}/${id}`, {
+        await axios.delete(getApiUrl('destinos') + `/${id}`, {
             headers: {
                 'Authorization': `Bearer ${token}`,
                 'Content-Type': 'application/json'

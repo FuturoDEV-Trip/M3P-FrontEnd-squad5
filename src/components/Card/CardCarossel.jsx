@@ -4,6 +4,7 @@ import { Pencil, Trash2, ChevronLeft, ChevronRight } from 'lucide-react';
 import ModalCardDestinos from "./ModalCardDestinos";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { getApiUrl } from '../../service/api';
 
 const CardCarrossel = () => {
   const [destinos, setDestinos] = useState([]);
@@ -14,7 +15,7 @@ const CardCarrossel = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/destinos", {
+      .get(getApiUrl('destinos'), {
         headers: {
           Authorization: `${token}`,
           "Content-Type": "application/json",
@@ -41,7 +42,7 @@ const CardCarrossel = () => {
   const excluirDestino = async (id) => {
     if (window.confirm("Você tem certeza que quer deletar este destino?")) {
       try {
-        await axios.delete(`http://localhost:3000/destinos/${id}`, {
+        await axios.delete(getApiUrl('destinos') + `/${id}`, {
           headers: {
             Authorization: `${token}`,
             "Content-Type": "application/json",
