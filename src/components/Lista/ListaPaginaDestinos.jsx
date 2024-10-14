@@ -20,7 +20,6 @@ function ListaPaginaDestinos() {
               }});
 
             setPlaces(response.data);
-            console.log(places)
         } catch (error) {
             console.log('Falha ao carregar destinos', error);
         }

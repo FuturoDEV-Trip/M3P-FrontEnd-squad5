@@ -45,7 +45,6 @@ export function AuthProvider({ children }) {
 
     async function signOut() {
         try {
-            console.log(token)
             await axios.post(getApiUrl('logout'), {}, {
             headers: {
                 'Authorization': `Bearer ${token}`,

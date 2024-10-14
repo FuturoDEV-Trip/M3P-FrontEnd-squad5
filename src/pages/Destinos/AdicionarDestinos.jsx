@@ -29,7 +29,6 @@ function AdicionarDestinos() {
     const token = localStorage.getItem("token");
 
     try {
-      console.log(data)
       await axios.post(getApiUrl('destinos'),
         { ...data, id_usuario: user.id },
         {
