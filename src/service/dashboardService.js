@@ -4,7 +4,6 @@ import { getApiUrl } from './api';
 export const fetchPlaces = async () => {
   try {
     const response = await axios.get(getApiUrl('destinosPublicos'));
-    console.log('URL da API:', getApiUrl);
     return response.data;
   } catch (error) {
     console.error('Falha ao carregar informações dos destinos:', error);

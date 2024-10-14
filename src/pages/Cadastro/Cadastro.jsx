@@ -63,7 +63,6 @@ function Cadastro() {
           "Content-Type": "application/json",
         },
       });
-      console.log("Resposta do servidor:", response);
       setSuccessMessage("Check-in realizado com sucesso!");
       alert("Check-in realizado com sucesso!");
       navigate("/");

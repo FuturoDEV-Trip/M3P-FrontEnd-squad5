@@ -1,9 +1,15 @@
 import axios from 'axios';
 import { getApiUrl } from './api';
 
-const token = localStorage.getItem("token")
 
 export const updatePlace = async (id, updatedData) => {
+    
+    const token = localStorage.getItem("token")
+    if(!token) {
+        console.error('Token não encontrado');
+        throw new Error('Token não encontrado');
+    }
+
     try {
         const response = await axios.put(getApiUrl('destinos') + `/${id}`, updatedData, {
             headers: {

@@ -33,12 +33,12 @@ function AdicionarDestinos() {
         { ...data, id_usuario: user.id },
         {
           headers: {
-            'Authorization': `${token}`,
+            'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json'
           },
         }
       );
-      
+
       setSuccessMessage("Destino cadastrado com sucesso!");
       alert("Destino cadastrado com sucesso!");
       setTimeout(() => {
