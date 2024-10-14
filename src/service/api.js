@@ -1,4 +1,4 @@
-const API_BASE_URL = 'https://check-green.onrender.com';
+const API_BASE_URL = 'https://check-green-xmry.onrender.com';
 
 export const ENDPOINTS = {
     dashboard: `${API_BASE_URL}/`,
