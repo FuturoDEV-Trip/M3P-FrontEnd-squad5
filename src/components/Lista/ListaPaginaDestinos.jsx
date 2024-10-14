@@ -4,6 +4,7 @@ import { Pencil, Trash2 } from 'lucide-react';
 import { deletePlace } from '../../service/placesService';
 import styles from './ListaPaginaDestinos.module.css';
 import axios from 'axios';
+import { getApiUrl } from '../../service/api';
 
 function ListaPaginaDestinos() {
     const [places, setPlaces] = useState([]);
@@ -13,7 +14,7 @@ function ListaPaginaDestinos() {
 
     async function loadPlaces() {
         try {
-            const response = await axios.get('http://localhost:3000/destinos', {headers: {
+            const response = await axios.get(getApiUrl('destinos'), {headers: {
                 'Authorization': `${token}`,
                 'Content-Type': 'application/json'
               }});
@@ -26,7 +27,7 @@ function ListaPaginaDestinos() {
 
     async function loadUsers() {
         try {
-            const response = await axios.get('http://localhost:3000/usuarios', {headers: {
+            const response = await axios.get(getApiUrl('usuarios'), {headers: {
                 /* 'Authorization': `${token}`, */
                 'Content-Type': 'application/json'
               }});

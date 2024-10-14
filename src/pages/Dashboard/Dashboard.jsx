@@ -9,6 +9,7 @@ import CardsDashboard from '../../components/Card/CardsDashboard';
 import Card from '../../components/Card/Card';
 import styles from './Dashboard.module.css';
 import axios from 'axios';
+import { getApiUrl } from '../../service/api';
 
 function Dashboard() {
     const [userCount, setUserCount] = useState(0);
@@ -19,7 +20,7 @@ function Dashboard() {
 
     async function fetchUserCount() {
         try {
-            const response = await axios.get('http://localhost:3000/');
+            const response = await axios.get(getApiUrl('dashboard'));
             setUserCount(response.data.usuariosAtivos);
         } catch (error) {
             console.log('Falha ao contabilizar usuários', error);
@@ -28,7 +29,7 @@ function Dashboard() {
 
     async function fetchPlaceCount() {
         try {
-            const response = await axios.get('http://localhost:3000/');
+            const response = await axios.get(getApiUrl('dashboard'));
             setPlaceCount(response.data.totalLocais);
         } catch (error) {
             console.log('Falha ao contabilizar destinos', error);

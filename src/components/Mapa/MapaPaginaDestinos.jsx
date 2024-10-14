@@ -8,6 +8,7 @@ import L from 'leaflet';
 import { renderToString } from 'react-dom/server';
 import { MapPinCheckInside } from 'lucide-react';
 import { useAuth } from '../../contexts/Auth';
+import { getApiUrl } from '../../service/api';
 
 const svgIcon = renderToString(<MapPinCheckInside color="#586fdf" />);
 const base64Icon = `data:image/svg+xml;base64,${btoa(svgIcon)}`;
@@ -60,7 +61,7 @@ function MapaPaginaDestinos({ center = [-27.593500, -48.558540], zoom = 13 }) {
   useEffect(() => {
     const fetchPlaces = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/destinos', {
+        const response = await axios.get(getApiUrl('destinos'), {
           headers: {
             Authorization: `Bearer ${token}`,
           },

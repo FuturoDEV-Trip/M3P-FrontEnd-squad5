@@ -1,10 +1,10 @@
 import axios from 'axios';
-
-const API_BASE_URL = 'http://localhost:3000';
+import { getApiUrl } from './api';
 
 export const fetchPlaces = async () => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/destinos-publicos`);
+    const response = await axios.get(getApiUrl('destinosPublicos'));
+    console.log('URL da API:', getApiUrl);
     return response.data;
   } catch (error) {
     console.error('Falha ao carregar informações dos destinos:', error);
@@ -14,7 +14,7 @@ export const fetchPlaces = async () => {
 
 export const fetchUsers = async () => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/usuarios`);
+    const response = await axios.get(getApiUrl('usuarios'));
     return response.data;
   } catch (error) {
     console.error('Falha ao carregar informações dos usuários:', error);

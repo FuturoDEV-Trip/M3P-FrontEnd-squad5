@@ -7,6 +7,7 @@ import Sidebar from "../../components/Sidebar/Sidebar";
 import { Plane, Undo2 } from "lucide-react";
 import styles from "./AdicionarDestinos.module.css";
 import axios from "axios";
+import { getApiUrl } from '../../service/api';
 
 function AdicionarDestinos() {
   const { user } = useAuth();
@@ -28,8 +29,7 @@ function AdicionarDestinos() {
     const token = localStorage.getItem("token");
 
     try {
-      await axios.post(
-        "http://localhost:3000/destinos",
+      await axios.post(getApiUrl('destinos'),
         { ...data, id_usuario: user.id },
         {
           headers: {

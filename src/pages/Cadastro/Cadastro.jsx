@@ -6,6 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import styles from "./Cadastro.module.css";
 import axios from "axios";
 import { House } from 'lucide-react';
+import { getApiUrl } from '../../service/api';
 
 // Validation with Zod
 const schema = z.object({
@@ -57,7 +58,7 @@ function Cadastro() {
 
   async function onSubmit(data) {
     try {
-      const response = await axios.post("http://localhost:3000/usuarios", data, {
+      const response = await axios.post(getApiUrl('usuarios'), data, {
         headers: {
           "Content-Type": "application/json",
         },

@@ -6,6 +6,7 @@ import Sidebar from '../../components/Sidebar/Sidebar';
 import getAddressFromCep from '../../service/addressService';
 import { Undo2 } from 'lucide-react';
 import styles from './EditarDestino.module.css';
+import { getApiUrl } from '../../service/api';
 
 function EditarDestino() {
     const { id } = useParams();
@@ -34,7 +35,7 @@ function EditarDestino() {
 
     async function retrievePlace() {
         try {
-            const response = await fetch(`http://localhost:3000/destinos/${id}`, {headers: {
+            const response = await fetch(getApiUrl('destinos') + `/${id}`, {headers: {
                 'Authorization': `Bearer ${token}`,
                 'Content-Type': 'application/json'
               }});

@@ -1,6 +1,7 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { getApiUrl } from '../service/api';
 
 const AuthContext = createContext();
 
@@ -22,7 +23,7 @@ export function AuthProvider({ children }) {
     async function signIn({ email_usuario, senha_usuario }) {
         try {
 
-            const loginResponse = await axios.post('http://localhost:3000/login', { email_usuario, senha_usuario });
+            const loginResponse = await axios.post(getApiUrl('login'), { email_usuario, senha_usuario });
             const loginData = loginResponse.data;
 
             if (loginData && loginData.Token && loginData.usuario) {
@@ -44,7 +45,7 @@ export function AuthProvider({ children }) {
 
     async function signOut() {
         try {
-            await axios.post('http://localhost:3000/logout', {}, {
+            await axios.post(getApiUrl('logout'), {}, {
             headers: {
                 'Authorization': `Bearer ${token}`,
                 'Content-Type': 'application/json'
